@@ -26,3 +26,12 @@ a:hover {
 button {
   cursor: pointer;
 }
+
+.js-content {
+  line-height: 1.5;
+}
+
+.js-content p,
+.js-content ul {
+  font-size: 1rem;
+}

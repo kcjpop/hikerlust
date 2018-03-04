@@ -28,17 +28,8 @@ const TemplateWrapper = ({ children }) => (
           </li>
         </ul>
       </div>
-
-      <div
-        className="mt3 mb4 cover"
-        style={{ backgroundImage: 'url(https://hikerlust.com/wp-content/uploads/2018/02/DSC09559-1.jpg)' }}
-      >
-        <a href="" className="tc db pv6">
-          <img src="https://hikerlust.com/wp-content/uploads/2017/02/hikerlust.png" alt="" className="mw6" />
-        </a>
-      </div>
     </header>
-    <main className="mw8-ns center">{children()}</main>
+    <main>{children()}</main>
   </section>
 )
 
