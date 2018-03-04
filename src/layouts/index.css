@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+@import 'tachyons/src/tachyons.css';
+@import './styles/variables.css';
+@import './styles/fonts.css';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--mid-gray);
+  font-size: 0.875rem;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: var(--mid-gray);
+  transition: color 0.3s ease-in;
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+button {
+  cursor: pointer;
+}
