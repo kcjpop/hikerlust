@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Post from '../components/Post'
+import classnames from 'classnames'
 
 export const query = graphql`
   query LatestPosts {
@@ -46,10 +47,19 @@ const IndexPage = props => {
         </div>
 
         <div className="flex flex-column flex-row-ns mt4">
-          <div className="w-70-ns ph3">
+          <div className="w-70-ns pr4">
             <div className="tc pv3 ba b--light-silver f7 ttu tracked">Bài viết mới</div>
-            <div className="flex">
-              {posts.map(post => <Post className="ph2 w-50-ns lh-copy tc" key={post.node.id} post={post.node} />)}
+            <div className="flex mt3">
+              {posts.map((post, index) => (
+                <Post
+                  className={classnames('w-50-ns lh-copy tc', {
+                    pr2: index % 2 === 0,
+                    pl2: index % 2 !== 0
+                  })}
+                  key={post.node.id}
+                  post={post.node}
+                />
+              ))}
             </div>
           </div>
 

@@ -7,6 +7,7 @@ module.exports = {
     title: 'Hikerlust'
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-contentful',
       options: {

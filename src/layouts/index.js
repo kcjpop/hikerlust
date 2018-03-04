@@ -1,11 +1,25 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 
 import './index.css'
 
-const TemplateWrapper = ({ children }) => (
+export const query = graphql`
+  query AboutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+
+const TemplateWrapper = ({ children, data }) => (
   <section>
+    <Helmet>
+      <title>{data.site.siteMetadata.title}</title>
+    </Helmet>
     <header className="">
       <div className="bg-dark-gray" style={{ height: '.25rem' }} />
 
