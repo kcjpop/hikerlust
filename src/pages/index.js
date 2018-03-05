@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import classnames from 'classnames'
 
-import Post from '@/components/Post'
+import PostList from '@/components/PostList'
 import BigBanner from '@/components/BigBanner'
 
 export const query = graphql`
@@ -10,6 +9,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        defaultCover
       }
     }
     tags: allContentfulTag {
@@ -59,33 +59,17 @@ export default function(props) {
 
   return (
     <div>
-      <BigBanner
-        title={site.siteMetadata.title}
-        bgImage="https://hikerlust.com/wp-content/uploads/2018/02/DSC09559-1.jpg"
-        href="/"
-      />
+      <BigBanner title={site.siteMetadata.title} bgImage={site.siteMetadata.defaultCover} href="/" />
 
       <div className="mw8-ns center">
         <div className="flex flex-column flex-row-ns mt4">
           <div className="w-70-ns pr4">
-            <div className="tc pv3 ba b--light-silver f6 ttu tracked">Bài viết mới</div>
-            <div className="flex flex-wrap mt3">
-              {posts.map((post, index) => (
-                <Post
-                  className={classnames('w-50-ns lh-copy tc pb3', {
-                    pr2: index % 2 === 0,
-                    pl2: index % 2 !== 0
-                  })}
-                  key={post.node.id}
-                  post={post.node}
-                />
-              ))}
-            </div>
+            <PostList title="Bài viết mới" posts={posts} />
           </div>
 
           <div className="w-30-ns">
             <section className="mb4">
-              <header className="tc pv3 ba b--light-silver f6 ttu tracked">Về Na</header>
+              <header className="tc pv3 ba b--silver f6 ttu tracked">Về Na</header>
               <main className="lh-copy">
                 <p className="mv3 tc">
                   <img src="https://hikerlust.com/wp-content/uploads/2018/02/Untitled-1.png" alt="" className="mw5" />
@@ -95,7 +79,7 @@ export default function(props) {
             </section>
 
             <section className="mb4">
-              <header className="tc pv3 ba b--light-silver f6 ttu tracked">Theo dõi Na</header>
+              <header className="tc pv3 ba b--silver f6 ttu tracked">Theo dõi Na</header>
               <main className="lh-copy tc pv3">
                 <a href="" className="mh2">
                   <i className="f3 fa fa-facebook-square" />
@@ -113,13 +97,16 @@ export default function(props) {
             </section>
 
             <section className="mb4">
-              <header className="tc pv3 ba b--light-silver f6 ttu tracked">Tags</header>
+              <header className="tc pv3 ba b--silver f6 ttu tracked">Tags</header>
               <main className="lh-copy tc pv3">
                 <ul className="list pa0 ma0">
                   {tags.edges.map(({ node }) => (
-                    <li className="dib">
-                      <Link to={`/tag/${node.slug}`} className="db pv2 ph3 mr2 mb2 ba b--gold gold">
-                        {node.title}
+                    <li className="dib" key={node.id}>
+                      <Link to={`/tag/${node.slug}`} className="db pv2 ph3 mr2 mb2 ba b--gold gold flex items-center">
+                        {node.title}{' '}
+                        <span className="ml1 w1 h1 br-100 bg-gold white f6 inline-flex items-center justify-center">
+                          {node.post.length}
+                        </span>
                       </Link>
                     </li>
                   ))}

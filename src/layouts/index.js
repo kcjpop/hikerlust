@@ -7,7 +7,7 @@ import Instafeed from '@/components/Instafeed'
 import './index.css'
 
 export const query = graphql`
-  query AboutQuery {
+  query TemplateQuery {
     site {
       siteMetadata {
         title

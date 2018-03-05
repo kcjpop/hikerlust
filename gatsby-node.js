@@ -1,5 +1,34 @@
 const path = require('path')
 
+function generateTags({ graphql, boundActionCreators: { createPage } }) {
+  return graphql(
+    `
+      query AllTags {
+        tags: allContentfulTag {
+          edges {
+            node {
+              id
+              title
+              slug
+            }
+          }
+        }
+      }
+    `
+  ).then(result => {
+    if (result.errors) return reject(result.errors)
+
+    const component = path.resolve(__dirname, 'src/layouts/tags.js')
+    result.data.tags.edges.forEach(edge => {
+      createPage({
+        component,
+        path: `/tag/${edge.node.slug}`,
+        context: edge.node
+      })
+    })
+  })
+}
+
 function generatePages({ graphql, boundActionCreators: { createPage } }) {
   return graphql(
     `
@@ -63,7 +92,7 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
 }
 
 exports.createPages = function(args) {
-  return Promise.all([generatePosts(args), generatePages(args)])
+  return Promise.all([generatePosts(args), generatePages(args), generateTags(args)])
 }
 
 exports.modifyWebpackConfig = ({ config }) => {
