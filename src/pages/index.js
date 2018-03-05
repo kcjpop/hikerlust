@@ -12,6 +12,18 @@ export const query = graphql`
         title
       }
     }
+    tags: allContentfulTag {
+      edges {
+        node {
+          id
+          title
+          slug
+          post {
+            id
+          }
+        }
+      }
+    }
     posts: allContentfulPost(limit: 10, sort: { fields: [originallyCreatedAt, createdAt], order: DESC }) {
       edges {
         node {
@@ -43,7 +55,7 @@ export const query = graphql`
 
 export default function(props) {
   const posts = props.data.posts.edges
-  const { site } = props.data
+  const { site, tags } = props.data
 
   return (
     <div>
@@ -97,6 +109,21 @@ export default function(props) {
                 <a href="" className="mh2">
                   <i className="f3 fa fa-twitter-square" />
                 </a>
+              </main>
+            </section>
+
+            <section className="mb4">
+              <header className="tc pv3 ba b--light-silver f6 ttu tracked">Tags</header>
+              <main className="lh-copy tc pv3">
+                <ul className="list pa0 ma0">
+                  {tags.edges.map(({ node }) => (
+                    <li className="dib">
+                      <Link to={`/tag/${node.slug}`} className="db pv2 ph3 mr2 mb2 ba b--gold gold">
+                        {node.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </main>
             </section>
           </div>
