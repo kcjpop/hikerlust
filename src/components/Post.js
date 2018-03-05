@@ -4,7 +4,7 @@ import fecha from '@/helpers/fecha'
 
 export default function Post(props) {
   const { post, ...rest } = props
-  const date = fecha.format(new Date(post.originallyCreatedAt), 'DD MMMM, YYYY')
+  const date = fecha.format(new Date(post.originallyCreatedAt || post.createdAt), 'DD MMMM, YYYY')
 
   return (
     <article {...rest}>

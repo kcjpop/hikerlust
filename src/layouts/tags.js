@@ -22,6 +22,7 @@ export const query = graphql`
           slug
           originallyCreatedAt
           featuredImage
+          createdAt
           places {
             id
             name
