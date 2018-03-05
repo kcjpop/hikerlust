@@ -4,6 +4,7 @@ import classnames from 'classnames'
 
 import logo from '@/layouts/img/logo.png'
 import Post from '@/components/Post'
+import Instafeed from '@/components/Instafeed'
 
 export const query = graphql`
   query LatestPosts {
@@ -101,6 +102,11 @@ export default function(props) {
             </section>
           </div>
         </div>
+      </div>
+
+      <div className="mt4">
+        <header className="tc pv4 f6 ttu tracked">Instagram của Na</header>
+        <Instafeed className="w-100 flex" />
       </div>
     </div>
   )

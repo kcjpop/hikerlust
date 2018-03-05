@@ -20,30 +20,46 @@ const TemplateWrapper = ({ children, data }) => (
     <Helmet>
       <title>{data.site.siteMetadata.title}</title>
     </Helmet>
-    <header className="">
+    <header>
       <div className="bg-dark-gray" style={{ height: '.25rem' }} />
 
       <div className="bb b--light-gray">
         <ul className="list pv3 ma0 flex items-center mw8-ns center">
           <li className="mr4">
-            <Link className="fw3 f6 ttu tracked gray">Nhà Của Na</Link>
+            <Link to="/" className="fw3 f6 ttu tracked gray">
+              Nhà Của Na
+            </Link>
           </li>
           <li className="mr4">
-            <Link className="fw3 f6 ttu tracked gray">Bản Đồ Lang Thang</Link>
+            <Link to="/" className="fw3 f6 ttu tracked gray">
+              Bản Đồ Lang Thang
+            </Link>
           </li>
           <li className="mr4">
-            <Link className="fw3 f6 ttu tracked gray">Lang Thang Khắp Chốn</Link>
+            <Link to="/" className="fw3 f6 ttu tracked gray">
+              Lang Thang Khắp Chốn
+            </Link>
           </li>
           <li className="mr4">
-            <Link className="fw3 f6 ttu tracked gray">Bí Kíp Lang Thang</Link>
+            <Link to="/" className="fw3 f6 ttu tracked gray">
+              Bí Kíp Lang Thang
+            </Link>
           </li>
           <li className="mr4">
-            <Link className="fw3 f6 ttu tracked gray">Về Na Và Hikerlust</Link>
+            <Link to="/" className="fw3 f6 ttu tracked gray">
+              Về Na Và Hikerlust
+            </Link>
           </li>
         </ul>
       </div>
     </header>
     <main>{children()}</main>
+
+    <footer className="mt4 mw8-ns center">
+      <p className="lh-copy f6 gray">
+        {new Date().getFullYear()} Copyright by Na. All Rights Reserved. Feel free to share (include source){' '}
+      </p>
+    </footer>
   </section>
 )
 

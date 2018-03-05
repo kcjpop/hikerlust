@@ -5,7 +5,10 @@ export default function Post(props) {
   const { post, ...rest } = props
   return (
     <article {...rest}>
-      <div className="mb2 h5 cover bg-center" style={{ backgroundImage: `url(${post.featuredImage})` }} />
+      <Link to={`/${post.slug}`}>
+        <div className="mb2 h5 cover bg-center" style={{ backgroundImage: `url(${post.featuredImage})` }} />
+      </Link>
+
       <h4 className="mv2">
         <Link className="f5 ttu tracked fw6" to={`/${post.slug}`}>
           {post.title}
