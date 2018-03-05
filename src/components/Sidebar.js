@@ -9,7 +9,11 @@ export default function(props) {
         <header className="tc pv3 ba b--silver f6 ttu tracked">Về Na</header>
         <main className="lh-copy">
           <p className="mv3 tc">
-            <img src="https://hikerlust.com/wp-content/uploads/2018/02/Untitled-1.png" alt="" className="mw5" />
+            <img
+              src="https://res.cloudinary.com/hikerlust/image/upload/v1520282891/Untitled-1_1_am6mkt.png"
+              alt="Na"
+              className="mw5"
+            />
           </p>
           Tôi là một cô gái hay đi và Hikerlust là nơi ghi lại những chuyến đi của tôi &lt;3
         </main>

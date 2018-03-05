@@ -6,7 +6,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Hikerlust',
+    title: 'Nhà của Na',
     defaultCover: 'https://res.cloudinary.com/hikerlust/image/upload/v1520256999/DSC09559-1_1_b8syui.jpg',
     socials: {
       instagramHandle: 'hikerlust',
