@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import classnames from 'classnames'
 
-import logo from '@/layouts/img/logo.png'
 import Post from '@/components/Post'
+import BigBanner from '@/components/BigBanner'
 import Instafeed from '@/components/Instafeed'
 
 export const query = graphql`
@@ -38,14 +38,11 @@ export default function(props) {
 
   return (
     <div>
-      <div
-        className="mt3 mb4 cover"
-        style={{ backgroundImage: 'url(https://hikerlust.com/wp-content/uploads/2018/02/DSC09559-1.jpg)' }}
-      >
-        <Link to="/" className="tc db pv6">
-          <img src={logo} alt={site.siteMetadata.title} className="mw6" />
-        </Link>
-      </div>
+      <BigBanner
+        title={site.siteMetadata.title}
+        bgImage="https://hikerlust.com/wp-content/uploads/2018/02/DSC09559-1.jpg"
+        href="/"
+      />
 
       <div className="mw8-ns center">
         <div className="tc">
