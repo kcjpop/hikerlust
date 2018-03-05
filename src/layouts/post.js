@@ -80,7 +80,7 @@ export default function(props) {
         <article className="pb4 bb b--light-gray">
           <h1 className="f2 tc gw6 ttu gold">{post.title}</h1>
 
-          <div className="db tc f5">
+          <div className="db tc f5 mb4">
             <span className="mr4">
               <i className="fa fa-calendar mr2" />
               {date}
