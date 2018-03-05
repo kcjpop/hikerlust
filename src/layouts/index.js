@@ -23,6 +23,7 @@ const TemplateWrapper = ({ children, data }) => (
   <section>
     <Helmet>
       <title>{data.site.siteMetadata.title}</title>
+      <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
     </Helmet>
     <header>

@@ -12,7 +12,7 @@ export const query = graphql`
         defaultCover
       }
     }
-    tags: allContentfulTag {
+    tags: allContentfulTag(sort: { fields: [slug], order: ASC }) {
       edges {
         node {
           id
@@ -82,17 +82,17 @@ export default function(props) {
             <section className="mb4">
               <header className="tc pv3 ba b--silver f6 ttu tracked">Theo dõi Na</header>
               <main className="lh-copy tc pv3">
-                <a href="" className="mh2">
-                  <i className="f3 fa fa-facebook-square" />
+                <a href="" className="mh2 f3">
+                  <i className="fa fa-facebook-square" />
                 </a>
-                <a href="" className="mh2">
-                  <i className="f3 fa fa-instagram" />
+                <a href="" className="mh2 f3">
+                  <i className="fa fa-instagram" />
                 </a>
-                <a href="" className="mh2">
-                  <i className="f3 fa fa-pinterest-square" />
+                <a href="" className="mh2 f3">
+                  <i className="fa fa-pinterest-square" />
                 </a>
-                <a href="" className="mh2">
-                  <i className="f3 fa fa-twitter-square" />
+                <a href="" className="mh2 f3">
+                  <i className="fa fa-twitter-square" />
                 </a>
               </main>
             </section>
