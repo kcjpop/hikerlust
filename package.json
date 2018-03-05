@@ -16,13 +16,11 @@
     "react-markdown": "^3.2.2",
     "tachyons": "^4.9.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build && cp -r verify/.well-known public",
     "start": "gatsby develop"
   },
   "devDependencies": {
