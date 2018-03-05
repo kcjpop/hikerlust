@@ -1,7 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+
 import PostList from '@/components/PostList'
 import BigBanner from '@/components/BigBanner'
+import Sidebar from '@/components/Sidebar'
+import TwoColumnLayout from '@/components/TwoColumnLayout'
 
 export const query = graphql`
   query SingleTag($id: String) {
@@ -9,6 +12,9 @@ export const query = graphql`
       siteMetadata {
         defaultCover
       }
+    }
+    tags: allContentfulTag(sort: { fields: [slug], order: ASC }) {
+      ...TagCloudFragment
     }
     posts: allContentfulPost(
       filter: { tags: { id: { eq: $id } } }
@@ -23,8 +29,16 @@ export const query = graphql`
   }
 `
 
+function main(props) {
+  return <PostList posts={props.data.posts.edges} title={`Bài viết thuộc chủ đề “${props.pathContext.title}”`} />
+}
+
+function sidebar(props) {
+  return <Sidebar tags={props.data.tags} />
+}
+
 export default function(props) {
-  const { posts, site } = props.data
+  const { site } = props.data
   const tag = props.pathContext
   return (
     <div>
@@ -35,7 +49,7 @@ export default function(props) {
       <BigBanner title={tag.title} bgImage={site.siteMetadata.defaultCover} href="/" />
 
       <div className="mw8-ns center">
-        <PostList posts={posts.edges} title={`Bài viết: ${tag.title}`} />
+        <TwoColumnLayout main={() => main(props)} sidebar={() => sidebar(props)} />
       </div>
     </div>
   )

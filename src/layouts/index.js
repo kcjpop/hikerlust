@@ -69,7 +69,7 @@ const TemplateWrapper = ({ children, data }) => (
 
       <div className="mw8-ns center mt4">
         <p className="lh-copy f6 gray">
-          {new Date().getFullYear()} Copyright by Na. All Rights Reserved. Feel free to share (include source){' '}
+          {new Date().getFullYear()} Copyright by Na. All Rights Reserved. Feel free to share (include source)
         </p>
       </div>
     </footer>
