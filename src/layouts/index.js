@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
+import Instafeed from '@/components/Instafeed'
 
 import './index.css'
 
@@ -10,6 +11,9 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        socials {
+          instagramHandle
+        }
       }
     }
   }
@@ -55,10 +59,17 @@ const TemplateWrapper = ({ children, data }) => (
     </header>
     <main>{children()}</main>
 
-    <footer className="mt4 mw8-ns center">
-      <p className="lh-copy f6 gray">
-        {new Date().getFullYear()} Copyright by Na. All Rights Reserved. Feel free to share (include source){' '}
-      </p>
+    <footer className="mt4">
+      <div className="mt4">
+        <header className="tc pv4 f6 ttu tracked">Instagram của Na</header>
+        <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} className="w-100 flex" />
+      </div>
+
+      <div className="mw8-ns center mt4">
+        <p className="lh-copy f6 gray">
+          {new Date().getFullYear()} Copyright by Na. All Rights Reserved. Feel free to share (include source){' '}
+        </p>
+      </div>
     </footer>
   </section>
 )

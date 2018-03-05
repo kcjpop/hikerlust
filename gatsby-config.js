@@ -6,7 +6,11 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Hikerlust'
+    title: 'Hikerlust',
+    socials: {
+      instagramHandle: 'hikerlust',
+      instagramUrl: 'https://www.instagram.com/hikerlust/'
+    }
   },
   plugins: [
     'gatsby-plugin-react-helmet',

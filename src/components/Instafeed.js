@@ -11,7 +11,7 @@ class Instafeed extends React.Component {
   }
 
   getFeed() {
-    axios.get(`https://www.instagram.com/hikerlust/?__a=1`).then(result => {
+    axios.get(`https://www.instagram.com/${this.props.handle}/?__a=1`).then(result => {
       const media = result.data.user.media.nodes.slice(0, 10)
       this.setState({ media })
     })

@@ -29,7 +29,7 @@ export default function(props) {
 
       <BigBanner title={post.title} bgImage={post.featuredImage} href="/" />
 
-      <article className="mw8-ns center">
+      <article className="mw8-ns center pb4 bb b--light-gray">
         <h1 className="f2 tc gw6 ttu gold">{post.title}</h1>
         <Markdown source={post.content.content} className="js-content" />
       </article>
