@@ -2,9 +2,15 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import Link from 'gatsby-link'
 import Markdown from 'react-markdown'
+import logo from './img/logo.png'
 
 export const query = graphql`
   query SinglePost($id: String) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     post: contentfulPost(id: { eq: $id }) {
       id
       title
@@ -19,7 +25,7 @@ export const query = graphql`
 `
 
 export default function(props) {
-  const { post } = props.data
+  const { post, site } = props.data
   return (
     <div>
       <Helmet>
@@ -27,7 +33,7 @@ export default function(props) {
       </Helmet>
       <div className="mt3 mb4 cover bg-center" style={{ backgroundImage: `url(${post.featuredImage})` }}>
         <Link to="/" className="tc db pv6">
-          <img src="https://hikerlust.com/wp-content/uploads/2017/02/hikerlust.png" alt="" className="mw6" />
+          <img src={logo} alt={site.siteMetadata.title} className="mw6" />
         </Link>
       </div>
 

@@ -7,6 +7,11 @@ import Post from '@/components/Post'
 
 export const query = graphql`
   query LatestPosts {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     posts: allContentfulPost {
       edges {
         node {
@@ -26,8 +31,9 @@ export const query = graphql`
   }
 `
 
-const IndexPage = props => {
+export default function(props) {
   const posts = props.data.posts.edges
+  const { site } = props.data
 
   return (
     <div>
@@ -36,7 +42,7 @@ const IndexPage = props => {
         style={{ backgroundImage: 'url(https://hikerlust.com/wp-content/uploads/2018/02/DSC09559-1.jpg)' }}
       >
         <Link to="/" className="tc db pv6">
-          <img src={logo} alt="" className="mw6" />
+          <img src={logo} alt={site.siteMetadata.title} className="mw6" />
         </Link>
       </div>
 
@@ -99,5 +105,3 @@ const IndexPage = props => {
     </div>
   )
 }
-
-export default IndexPage
