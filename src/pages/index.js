@@ -44,16 +44,9 @@ export default function(props) {
       />
 
       <div className="mw8-ns center">
-        <div className="tc">
-          <p className="lh-copy mv2">
-            <img src="http://seaboardthemes.com/solstice-lite/wp-content/uploads/2016/04/2.jpg" alt="" />
-          </p>
-          ahaha
-        </div>
-
         <div className="flex flex-column flex-row-ns mt4">
           <div className="w-70-ns pr4">
-            <div className="tc pv3 ba b--light-silver f7 ttu tracked">Bài viết mới</div>
+            <div className="tc pv3 ba b--light-silver f6 ttu tracked">Bài viết mới</div>
             <div className="flex flex-wrap mt3">
               {posts.map((post, index) => (
                 <Post
@@ -70,7 +63,7 @@ export default function(props) {
 
           <div className="w-30-ns">
             <section className="mb4">
-              <header className="tc pv3 ba b--light-silver f7 ttu tracked">Về Na</header>
+              <header className="tc pv3 ba b--light-silver f6 ttu tracked">Về Na</header>
               <main className="lh-copy">
                 <p className="mv3 tc">
                   <img src="https://hikerlust.com/wp-content/uploads/2018/02/Untitled-1.png" alt="" className="mw5" />
@@ -80,7 +73,7 @@ export default function(props) {
             </section>
 
             <section className="mb4">
-              <header className="tc pv3 ba b--light-silver f7 ttu tracked">Theo dõi Na</header>
+              <header className="tc pv3 ba b--light-silver f6 ttu tracked">Theo dõi Na</header>
               <main className="lh-copy tc pv3">
                 <a href="" className="mh2">
                   <i className="f3 fa fa-facebook-square" />

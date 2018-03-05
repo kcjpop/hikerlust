@@ -35,3 +35,9 @@ button {
 .js-content ul {
   font-size: 1rem;
 }
+
+.js-content img {
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
