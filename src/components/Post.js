@@ -28,7 +28,7 @@ export const singlePostFragment = graphql`
 `
 
 export default function Post(props) {
-  const { post, ...rest } = props
+  const { post, noExcerpt, ...rest } = props
   const date = fecha.format(new Date(post.originallyCreatedAt || post.createdAt), 'DD MMMM, YYYY')
 
   return (
@@ -43,7 +43,7 @@ export default function Post(props) {
         </Link>
       </h4>
       <p className="lh-copy gray f6 mv2 fw3">{date}</p>
-      <p className="lh-copy f6 mid-gray tl">{post.excerpt}</p>
+      {!noExcerpt ? <p className="lh-copy f6 mid-gray tl">{post.excerpt}</p> : null}
     </article>
   )
 }

@@ -62,15 +62,25 @@ const TemplateWrapper = ({ children, data }) => (
     <main>{children()}</main>
 
     <footer className="mt4">
-      <div className="mt4">
+      <section className="mt4">
         <header className="tc pv4 f6 ttu tracked">Instagram của Na</header>
         <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} className="w-100 flex" />
-      </div>
+      </section>
 
       <div className="mw8-ns center mt4">
-        <p className="lh-copy f6 gray">
-          {new Date().getFullYear()} Copyright by Na. All Rights Reserved. Feel free to share (include source)
-        </p>
+        <div className="flex items-center">
+          <p className="lh-copy f6 gray">
+            {new Date().getFullYear()} Copyright by Na. All Rights Reserved. Feel free to share (include source)
+          </p>
+          <div className="ml-auto w-10">
+            <a href="https://www.contentful.com/" rel="nofollow" target="_blank">
+              <img
+                src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
+                alt="Powered by Contentful"
+              />
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   </section>

@@ -70,6 +70,12 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
               id
               title
               slug
+              tags {
+                id
+                post {
+                  id
+                }
+              }
             }
           }
         }
@@ -80,11 +86,17 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
 
     const component = path.resolve(__dirname, 'src/layouts/post.js')
     result.data.posts.edges.forEach(edge => {
+      // @TODO: Should define a tag for relating posts
+      const [tag] = [...edge.node.tags].sort((a, b) => {
+        return a.length - b.length
+      })
+
       createPage({
         component,
         path: `/${edge.node.slug}`,
         context: {
-          id: edge.node.id
+          id: edge.node.id,
+          tagId: tag ? tag.id : null
         }
       })
     })
