@@ -20,7 +20,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build && cp -r verify/.well-known public",
+    "build": "rm .cache -rf && gatsby build && cp -r verify/.well-known public",
     "start": "gatsby develop"
   },
   "devDependencies": {
