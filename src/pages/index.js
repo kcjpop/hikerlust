@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Post from '../components/Post'
 import classnames from 'classnames'
+
+import logo from '@/layouts/img/logo.png'
+import Post from '@/components/Post'
 
 export const query = graphql`
   query LatestPosts {
@@ -34,7 +36,7 @@ const IndexPage = props => {
         style={{ backgroundImage: 'url(https://hikerlust.com/wp-content/uploads/2018/02/DSC09559-1.jpg)' }}
       >
         <Link to="/" className="tc db pv6">
-          <img src="https://hikerlust.com/wp-content/uploads/2017/02/hikerlust.png" alt="" className="mw6" />
+          <img src={logo} alt="" className="mw6" />
         </Link>
       </div>
 
@@ -49,7 +51,7 @@ const IndexPage = props => {
         <div className="flex flex-column flex-row-ns mt4">
           <div className="w-70-ns pr4">
             <div className="tc pv3 ba b--light-silver f7 ttu tracked">Bài viết mới</div>
-            <div className="flex mt3">
+            <div className="flex flex-wrap mt3">
               {posts.map((post, index) => (
                 <Post
                   className={classnames('w-50-ns lh-copy tc', {

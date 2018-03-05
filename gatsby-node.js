@@ -34,3 +34,15 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
 exports.createPages = function(args) {
   return Promise.all([generatePosts(args)])
 }
+
+exports.modifyWebpackConfig = ({ config }) => {
+  config.merge({
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src')
+      }
+    }
+  })
+
+  return config
+}
