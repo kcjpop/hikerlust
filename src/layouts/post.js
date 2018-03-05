@@ -2,8 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import Link from 'gatsby-link'
 import Markdown from 'react-markdown'
-import AdSense from 'react-adsense'
 import BigBanner from '@/components/BigBanner'
+import GoogleAds from '@/components/GoogleAds'
 
 export const query = graphql`
   query SinglePost($id: String) {
@@ -50,11 +50,11 @@ export default function(props) {
 
       <article className="mw8-ns center pb4 bb b--light-gray">
         <h1 className="f2 tc gw6 ttu gold">{post.title}</h1>
-        <AdSense.Google format={slot1.format} client={slot1.client} slot={slot1.slot} />
+        <GoogleAds style={{ display: 'block', textAlign: 'center' }} {...slot1} />
 
         <Markdown source={post.content.content} className="js-content" />
 
-        <AdSense.Google format={slot2.format} client={slot2.client} slot={slot2.slot} />
+        <GoogleAds style={{ display: 'block', textAlign: 'center' }} {...slot2} />
       </article>
     </div>
   )
