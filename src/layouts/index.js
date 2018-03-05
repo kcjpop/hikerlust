@@ -50,7 +50,7 @@ const TemplateWrapper = ({ children, data }) => (
             </Link>
           </li>
           <li className="mr4">
-            <Link to="/" className="fw3 f6 ttu tracked gray">
+            <Link to="/ve-na-va-hikerlust" className="fw3 f6 ttu tracked gray">
               Về Na Và Hikerlust
             </Link>
           </li>
