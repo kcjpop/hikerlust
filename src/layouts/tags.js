@@ -16,27 +16,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          title
-          excerpt
-          slug
-          originallyCreatedAt
-          featuredImage
-          createdAt
-          places {
-            id
-            name
-            country
-            location {
-              lon
-              lat
-            }
-          }
-          tags {
-            id
-            title
-            slug
-          }
+          ...SinglePostFragment
         }
       }
     }

@@ -29,21 +29,7 @@ export const query = graphql`
       }
     }
     post: contentfulPost(id: { eq: $id }) {
-      id
-      title
-      slug
-      featuredImage
-      createdAt
-      originallyCreatedAt
-      content {
-        id
-        content
-      }
-      tags {
-        id
-        title
-        slug
-      }
+      ...SinglePostFragment
     }
   }
 `

@@ -27,27 +27,7 @@ export const query = graphql`
     posts: allContentfulPost(limit: 10, sort: { fields: [originallyCreatedAt, createdAt], order: DESC }) {
       edges {
         node {
-          id
-          title
-          excerpt
-          slug
-          originallyCreatedAt
-          featuredImage
-          createdAt
-          places {
-            id
-            name
-            country
-            location {
-              lon
-              lat
-            }
-          }
-          tags {
-            id
-            title
-            slug
-          }
+          ...SimpleSinglePostFragment
         }
       }
     }
