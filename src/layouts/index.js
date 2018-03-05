@@ -23,6 +23,7 @@ const TemplateWrapper = ({ children, data }) => (
   <section>
     <Helmet>
       <title>{data.site.siteMetadata.title}</title>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
     </Helmet>
     <header>
       <div className="bg-dark-gray" style={{ height: '.25rem' }} />

@@ -11,6 +11,20 @@ module.exports = {
     socials: {
       instagramHandle: 'hikerlust',
       instagramUrl: 'https://www.instagram.com/hikerlust/'
+    },
+    ads: {
+      slot1: {
+        layout: 'in-article',
+        format: 'fluid',
+        client: 'ca-pub-6060410210997401',
+        slot: '5245893378'
+      },
+      slot2: {
+        layout: 'in-article',
+        format: 'fluid',
+        client: 'ca-pub-6060410210997401',
+        slot: '7914798052'
+      }
     }
   },
   plugins: [
