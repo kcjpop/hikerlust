@@ -18,8 +18,9 @@ class Instafeed extends React.Component {
   }
 
   render() {
+    const { handle, ...rest } = this.props
     return (
-      <div {...this.props}>
+      <div {...rest}>
         {this.state.media.map(media => (
           <div className="w-10" key={media.code}>
             <a
