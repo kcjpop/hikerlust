@@ -98,6 +98,7 @@ exports.createPages = function(args) {
 exports.modifyWebpackConfig = ({ config }) => {
   config.merge({
     resolve: {
+      extensions: ['.js', '.jsx', '.css', '.json'],
       alias: {
         '@': path.resolve(__dirname, './src')
       }
