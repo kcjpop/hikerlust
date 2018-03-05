@@ -31,13 +31,53 @@ button {
   line-height: 1.5;
 }
 
+.js-content h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.js-content h2 {
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+.js-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.js-content h4 {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.js-content h5 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.js-content h6 {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
 .js-content p,
 .js-content ul {
-  font-size: 1rem;
+  font-size: 1.1rem;
+}
+
+.js-content li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .js-content img {
   margin: 0 auto;
   display: block;
   max-width: 100%;
+}
+
+.js-content img + em {
+  display: block;
+  text-align: center;
 }

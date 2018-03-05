@@ -12,14 +12,24 @@ export const query = graphql`
         title
       }
     }
-    posts: allContentfulPost {
+    posts: allContentfulPost(limit: 10, sort: { fields: [originallyCreatedAt, createdAt], order: DESC }) {
       edges {
         node {
           id
           title
           excerpt
           slug
+          originallyCreatedAt
           featuredImage
+          places {
+            id
+            name
+            country
+            location {
+              lon
+              lat
+            }
+          }
           tags {
             id
             title
@@ -50,7 +60,7 @@ export default function(props) {
             <div className="flex flex-wrap mt3">
               {posts.map((post, index) => (
                 <Post
-                  className={classnames('w-50-ns lh-copy tc', {
+                  className={classnames('w-50-ns lh-copy tc pb3', {
                     pr2: index % 2 === 0,
                     pl2: index % 2 !== 0
                   })}
