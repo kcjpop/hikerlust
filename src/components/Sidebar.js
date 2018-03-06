@@ -1,7 +1,6 @@
 import React from 'react'
 
 import TagCloud from './TagCloud'
-import SearchboxWidget from './widgets/Searchbox'
 
 export default function(props) {
   return (
