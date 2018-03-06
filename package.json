@@ -19,7 +19,7 @@
     "tachyons": "^4.9.1"
   },
   "scripts": {
-    "build": "rm .cache/json/* -rf && gatsby build && cp -r verify/.well-known public",
+    "build": "rm .cache/ -rf && gatsby build && cp -r verify/.well-known public",
     "start": "gatsby develop"
   },
   "devDependencies": {

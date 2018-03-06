@@ -27,11 +27,19 @@ function translate(key) {
 export default function(props) {
   return (
     <div className="mw8-ns center mv4">
-      <Configure hitsPerPage={10} />
+      <Configure hitsPerPage={2} />
       <SearchBox translate={translate} showLoadingIndicator={true} />
       <h1 className="f2 tc gw6 ttu gold">Kết quả tìm kiếm</h1>
       <Hits hitComponent={Item} />
-      <Pagination showLast={true} />
+      <div className="flex items-center">
+        <Pagination showLast={true} />
+        <div className="ml-auto">
+          <img
+            src="https://www.algolia.com/assets/pricing_new/algolia-powered-by-ac7dba62d03d1e28b0838c5634eb42a9.svg"
+            alt="Algolia"
+          />
+        </div>
+      </div>
     </div>
   )
 }

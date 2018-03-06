@@ -51,13 +51,18 @@
 
 .ais-Pagination__root {
   display: block;
-  margin: 1rem auto;
+  margin: 1rem 0;
   padding: 0;
   list-style-type: none;
-  text-align: center;
+}
+
+.ais-Pagination__itemLinkDisabled:hover,
+.ais-Pagination__itemDisabled:hover {
+  background-color: transparent !important;
 }
 
 .ais-Pagination__itemDisabled {
+  color: var(--light-silver);
 }
 
 .ais-Pagination__itemFirst,
