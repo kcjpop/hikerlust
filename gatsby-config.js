@@ -1,8 +1,13 @@
+const fs = require('fs')
 const path = require('path')
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-})
+const envPath = path.resolve(__dirname, `.env.${process.env.NODE_ENV}`)
+
+if (fs.existsSync(envPath)) {
+  require('dotenv').config({
+    path: envPath
+  })
+}
 
 module.exports = {
   siteMetadata: {

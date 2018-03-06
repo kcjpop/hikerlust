@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import Instafeed from '@/components/Instafeed'
-import { InstantSearch } from 'react-instantsearch/dom'
 
 import './index.css'
 
@@ -66,15 +65,7 @@ const TemplateWrapper = ({ children, data }) => (
       </div>
     </header>
 
-    <main>
-      <InstantSearch
-        appId={process.env.ALGOLIA_APP_ID}
-        apiKey={process.env.ALGOLIA_SEARCH_API_KEY}
-        indexName={process.env.ALGOLIA_INDEX_NAME}
-      >
-        {children()}
-      </InstantSearch>
-    </main>
+    <main>{children()}</main>
 
     <footer className="mt4">
       <section className="mt4">
