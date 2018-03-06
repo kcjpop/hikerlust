@@ -1,0 +1,87 @@
+.ais-Highlight__highlighted {
+  background-color: var(--light-yellow);
+  padding: 0.5rem;
+  font-style: normal;
+}
+
+.ais-SearchBox__wrapper {
+  padding: 0.1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 0.1rem solid var(--light-gray);
+}
+
+.ais-SearchBox__input {
+  font-size: 1rem;
+  color: var(--gray);
+  padding: 1rem;
+  width: 1%;
+  flex: 1;
+  outline: 0;
+  border: 0;
+  order: 1;
+}
+
+.ais-SearchBox__reset,
+.ais-SearchBox__submit {
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  order: 0;
+}
+
+.ais-SearchBox__reset {
+  order: 2;
+}
+
+.ais-SearchBox__reset svg {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--silver);
+}
+
+.ais-SearchBox__submit svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--gold);
+}
+
+.ais-Pagination__root {
+  display: block;
+  margin: 1rem auto;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+.ais-Pagination__itemDisabled {
+}
+
+.ais-Pagination__itemFirst,
+.ais-Pagination__itemLast,
+.ais-Pagination__itemNext,
+.ais-Pagination__itemPrevious {
+  font-size: 1.1rem;
+}
+
+.ais-Pagination__item {
+  display: inline-block;
+  margin: 0 0.3rem;
+}
+
+.ais-Pagination__itemSelected,
+.ais-Pagination__itemLink:hover {
+  background-color: var(--near-white);
+  border-radius: 0.3rem;
+}
+
+.ais-Pagination__itemLink {
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

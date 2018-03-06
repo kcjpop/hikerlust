@@ -14,6 +14,7 @@
     "instafeed.js": "^1.4.1",
     "marked": "^0.3.17",
     "react-helmet": "^5.2.0",
+    "react-instantsearch": "^4.5.2",
     "react-markdown": "^3.2.2",
     "tachyons": "^4.9.1"
   },

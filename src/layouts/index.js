@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import Instafeed from '@/components/Instafeed'
+import { InstantSearch } from 'react-instantsearch/dom'
 
 import './index.css'
 
@@ -56,10 +57,24 @@ const TemplateWrapper = ({ children, data }) => (
               Về Na Và Hikerlust
             </Link>
           </li>
+          <li className="mr4">
+            <Link to="/search" className="fw3 f6 gray">
+              <i className="fa fa-search" />
+            </Link>
+          </li>
         </ul>
       </div>
     </header>
-    <main>{children()}</main>
+
+    <main>
+      <InstantSearch
+        appId={process.env.ALGOLIA_APP_ID}
+        apiKey={process.env.ALGOLIA_SEARCH_API_KEY}
+        indexName={process.env.ALGOLIA_INDEX_NAME}
+      >
+        {children()}
+      </InstantSearch>
+    </main>
 
     <footer className="mt4">
       <section className="mt4">
