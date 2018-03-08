@@ -37,7 +37,7 @@ const TemplateWrapper = ({ children, data }) => (
             </Link>
           </li>
           <li className="mr4">
-            <Link to="/" className="fw3 f6 ttu tracked gray">
+            <Link to="/ban-do-lang-thang" className="fw3 f6 ttu tracked gray">
               Bản Đồ Lang Thang
             </Link>
           </li>

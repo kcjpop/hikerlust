@@ -16,3 +16,7 @@ fecha.i18n.monthNames = [
 ]
 
 export default fecha
+
+export function formatPostDate(post, format = 'DD MMMM, YYYY') {
+  return fecha.format(new Date(post.originallyCreatedAt || post.createdAt), format)
+}
