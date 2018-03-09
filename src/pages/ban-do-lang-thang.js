@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import classnames from 'classnames'
 import { Helmet } from 'react-helmet'
 import { InfoWindow, GoogleMap, Marker, withGoogleMap, withScriptjs } from 'react-google-maps'
 import { formatPostDate } from '@/helpers/fecha'
@@ -116,50 +117,6 @@ const MAP_STYLES = [
   }
 ]
 
-function makeInfoWindowContent(place) {
-  return (
-    <div style={{ maxHeight: '16rem' }} className="mw5 overflow-x-hidden overflow-y-auto pa3">
-      {place.post.map(post => (
-        <div key={post.id} className="mb3">
-          <Link to={`/${post.slug}`} className="db f6 fw4 gold ttu tracked">
-            {post.title}
-          </Link>
-          <p className="lh-copy">{formatPostDate(post)}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-const Map = withScriptjs(
-  withGoogleMap(function(props) {
-    const { places, infoWindowOpen } = props
-    const [center] = places
-    return (
-      <div className="mw8-ns center">
-        <GoogleMap
-          ref={props.mapRef}
-          defaultZoom={4}
-          defaultCenter={{ lat: center.node.location.lat, lng: center.node.location.lon }}
-          defaultOptions={{ styles: MAP_STYLES }}
-        >
-          {places.map(({ node }) => {
-            return (
-              <Marker
-                key={node.id}
-                position={{ lat: node.location.lat, lng: node.location.lon }}
-                onClick={props.doToggleInfoWindow(node)}
-              >
-                {props.isInfoWindowOpen(node) && <InfoWindow>{makeInfoWindowContent(node)}</InfoWindow>}
-              </Marker>
-            )
-          })}
-        </GoogleMap>
-      </div>
-    )
-  })
-)
-
 export const query = graphql`
   query AllPlacesQuery {
     places: allContentfulPlace {
@@ -185,6 +142,53 @@ export const query = graphql`
   }
 `
 
+function makeInfoWindowContent(place) {
+  return (
+    <div style={{ maxHeight: '16rem' }} className="mw5 overflow-x-hidden overflow-y-auto pa3">
+      {place.post.map(post => (
+        <div key={post.id} className="mb3">
+          <Link to={`/${post.slug}`} className="db f6 fw4 gold ttu tracked">
+            {post.title}
+          </Link>
+          <p className="lh-copy">{formatPostDate(post)}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const Map = withScriptjs(
+  withGoogleMap(function(props) {
+    const { places, infoWindowOpen } = props
+    const [center] = places
+    return (
+      <div className={classnames('mw8-ns center', props.className)}>
+        <GoogleMap
+          ref={props.mapRef}
+          defaultZoom={3}
+          defaultCenter={{ lat: center.node.location.lat, lng: center.node.location.lon }}
+          defaultOptions={{
+            styles: MAP_STYLES,
+            mapTypeControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP }
+          }}
+        >
+          {places.map(({ node }) => {
+            return (
+              <Marker
+                key={node.id}
+                position={{ lat: node.location.lat, lng: node.location.lon }}
+                onClick={props.doToggleInfoWindow(node)}
+              >
+                {props.isInfoWindowOpen(node) && <InfoWindow>{makeInfoWindowContent(node)}</InfoWindow>}
+              </Marker>
+            )
+          })}
+        </GoogleMap>
+      </div>
+    )
+  })
+)
+
 class LocationAccordion extends React.Component {
   sortPlaces(places) {
     return places.reduce((acc, { node }) => {
@@ -201,20 +205,20 @@ class LocationAccordion extends React.Component {
     const places = this.sortPlaces(this.props.places)
 
     return (
-      <div className="pa3">
+      <div className={this.props.className}>
         {Object.entries(places).map(([country, subplaces]) => {
           return (
             <div className="mb3" key={country}>
               <h3 className="pointer f4 gold fw3 ma0 pa0">
                 <i className="fa fa-angle-right" />
-                <span className="pl2 inline-flex items-center">
+                <span className="pl2 inline-flex items-center" title="bài viết">
                   {country}
                   <small className="ml1 w1 h1 br-100 bg-gold white f6 inline-flex items-center justify-center">
                     {this.countPosts(subplaces)}
                   </small>
                 </span>
               </h3>
-              <ul className="list">
+              <ul className="list pl3">
                 {subplaces.map(place => (
                   <li key={place.id} onClick={this.props.doCenterMap(place)} className="db mv3 pointer">
                     {place.name}
@@ -268,23 +272,23 @@ class HikerMap extends React.Component {
   render() {
     const { data } = this.props
     return (
-      <div className="flex flex-column flex-row-ns">
-        <div className="w-20">
-          <LocationAccordion doCenterMap={this.doCenterMap} places={data.places.edges} />
-        </div>
-        <div className="w-80">
-          <Map
-            mapRef={el => (this.mapRef = el)}
-            centerLocation={this.state.centerLocation}
-            isInfoWindowOpen={this.isInfoWindowOpen}
-            doToggleInfoWindow={this.doToggleInfoWindow}
-            places={data.places.edges}
-            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDt8lqo3-UTGbIZZef9zKmVMdPXm2rnLjY"
-            loadingElement={<div style={{ height: '100%' }} />}
-            containerElement={<div style={{ height: '80vh' }} />}
-            mapElement={<div style={{ height: '100%' }} />}
-          />
-        </div>
+      <div className="relative">
+        <LocationAccordion
+          doCenterMap={this.doCenterMap}
+          places={data.places.edges}
+          className="absolute top-1 left-1 z-2 pv3 ph4 bg-white"
+        />
+        <Map
+          mapRef={el => (this.mapRef = el)}
+          centerLocation={this.state.centerLocation}
+          isInfoWindowOpen={this.isInfoWindowOpen}
+          doToggleInfoWindow={this.doToggleInfoWindow}
+          places={data.places.edges}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDt8lqo3-UTGbIZZef9zKmVMdPXm2rnLjY"
+          loadingElement={<div style={{ height: '100%' }} />}
+          containerElement={<div style={{ height: '80vh' }} />}
+          mapElement={<div style={{ height: '100%' }} />}
+        />
       </div>
     )
   }
