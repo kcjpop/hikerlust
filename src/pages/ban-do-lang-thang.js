@@ -271,7 +271,7 @@ const Map = withScriptjs(
 
 class LocationAccordion extends React.Component {
   state = {
-    expanded: ''
+    expanedCountry: ''
   }
 
   sortPlaces(places) {
@@ -286,7 +286,7 @@ class LocationAccordion extends React.Component {
   }
 
   isExpanded = country => {
-    return this.state.expanded === country
+    return this.state.expanedCountry === country
   }
 
   getCountryListIcon = country => {
@@ -295,7 +295,7 @@ class LocationAccordion extends React.Component {
 
   doToggleExpand = country => e => {
     e.preventDefault()
-    this.setState({ expanded: this.isExpanded(country) ? '' : country })
+    this.setState({ expanedCountry: this.isExpanded(country) ? '' : country })
   }
 
   render() {
