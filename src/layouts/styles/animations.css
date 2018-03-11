@@ -1,0 +1,9 @@
+.a-slide-down-out {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+}
+.a-slide-down-in {
+  transition: max-height 0.5s ease-in-out;
+  max-height: 50vh;
+}

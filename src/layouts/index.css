@@ -4,6 +4,8 @@
 @import './styles/variables.css';
 @import './styles/fonts.css';
 @import './styles/instasearch.css';
+@import './styles/visibility.css';
+@import './styles/animations.css';
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -80,4 +82,8 @@ button {
 .js-content img + em {
   display: block;
   text-align: center;
+}
+
+.no-last-border:last-child {
+  border: none;
 }

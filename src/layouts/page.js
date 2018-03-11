@@ -21,13 +21,13 @@ export const query = graphql`
 export default function(props) {
   const { post } = props.data
   return (
-    <div>
+    <div className="mw8-ns center">
       <Helmet>
         <title>{post.title}</title>
       </Helmet>
 
-      <article className="mw8-ns center pb4 bb b--light-gray">
-        <h1 className="f2 tc gw6 ttu gold">{post.title}</h1>
+      <article className="pa3 pa0-ns pb4-ns bb b--light-gray">
+        <h1 className="f3 f2-ns tc gw6 ttu gold">{post.title}</h1>
         <Markdown source={post.content.content} className="js-content" />
       </article>
     </div>

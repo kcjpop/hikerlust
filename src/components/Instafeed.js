@@ -20,16 +20,17 @@ class Instafeed extends React.Component {
   render() {
     const { handle, ...rest } = this.props
     return (
-      <div {...rest}>
+      <div className="w-100 flex flex-wrap" {...rest}>
         {this.state.media.map(media => (
-          <div className="w-10" key={media.code}>
+          <div className="w-20 w-10-ns" key={media.code}>
             <a
+              className="db"
               rel="noopener noreferrer"
               target="_blank"
               href={`https://www.instagram.com/p/${media.code}`}
               title={media.caption}
             >
-              <img src={media.thumbnail_resources[1].src} alt="" />
+              <img src={media.thumbnail_resources[1].src} />
             </a>
           </div>
         ))}

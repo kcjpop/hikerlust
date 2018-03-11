@@ -4,3 +4,5 @@
   --yellow: #fbb03b;
   --light-yellow: #fff5c4;
 }
+
+@custom-media --breakpoint-small screen and (max-width: 30em);

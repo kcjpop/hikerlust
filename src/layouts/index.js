@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import Instafeed from '@/components/Instafeed'
+import classnames from 'classnames'
 
 import './index.css'
 
@@ -19,78 +20,108 @@ export const query = graphql`
   }
 `
 
-const TemplateWrapper = ({ children, data }) => (
-  <section>
-    <Helmet>
-      <title>{data.site.siteMetadata.title}</title>
-      <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
-    </Helmet>
-    <header>
-      <div className="bg-dark-gray" style={{ height: '.25rem' }} />
+const MENU = [
+  { label: 'Nhà Của Na', target: '/' },
+  { label: 'Bản Đồ Lang Thang', target: '/ban-do-lang-thang' },
+  { label: 'Lang Thang Khắp Chốn', target: '/' },
+  { label: 'Bí Kíp Lang Thang', target: '/' },
+  { label: 'Về Na Và Hikerlust', target: '/ve-na-va-hikerlust' }
+]
 
-      <div className="bb b--light-gray">
-        <ul className="list pv3 ma0 flex items-center mw8-ns center">
-          <li className="mr4">
-            <Link to="/" className="fw3 f6 ttu tracked gray">
-              Nhà Của Na
-            </Link>
-          </li>
-          <li className="mr4">
-            <Link to="/ban-do-lang-thang" className="fw3 f6 ttu tracked gray">
-              Bản Đồ Lang Thang
-            </Link>
-          </li>
-          <li className="mr4">
-            <Link to="/" className="fw3 f6 ttu tracked gray">
-              Lang Thang Khắp Chốn
-            </Link>
-          </li>
-          <li className="mr4">
-            <Link to="/" className="fw3 f6 ttu tracked gray">
-              Bí Kíp Lang Thang
-            </Link>
-          </li>
-          <li className="mr4">
-            <Link to="/ve-na-va-hikerlust" className="fw3 f6 ttu tracked gray">
-              Về Na Và Hikerlust
-            </Link>
-          </li>
-          <li className="mr4">
-            <Link to="/search" className="fw3 f6 gray">
-              <i className="fa fa-search" />
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </header>
+class TemplateWrapper extends React.Component {
+  state = {
+    menuVisible: false
+  }
 
-    <main>{children()}</main>
+  doToggleMenu = e => {
+    e.preventDefault()
+    this.setState({ menuVisible: !this.state.menuVisible })
+  }
 
-    <footer className="mt4">
-      <section className="mt4">
-        <header className="tc pv4 f6 ttu tracked">Instagram của Na</header>
-        <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} className="w-100 flex" />
-      </section>
+  render() {
+    const { data, children } = this.props
+    return (
+      <section>
+        <Helmet>
+          <title>{data.site.siteMetadata.title}</title>
+          <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+        </Helmet>
+        <header>
+          <div className="bg-dark-gray" style={{ height: '.25rem' }} />
 
-      <div className="mw8-ns center mt4">
-        <div className="flex items-center">
-          <p className="lh-copy f6 gray">
-            {new Date().getFullYear()} Copyright by Na. All Rights Reserved. Feel free to share (include source)
-          </p>
-          <div className="ml-auto w-10">
-            <a href="https://www.contentful.com/" rel="nofollow" target="_blank">
-              <img
-                src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
-                alt="Powered by Contentful"
-              />
-            </a>
+          <nav className="bb b--light-gray">
+            <ul className="list pv3 ma0 flex items-center mw8-ns center clip-s">
+              {MENU.map(menu => (
+                <li className="mr4" key={menu.label}>
+                  <Link to={menu.target} className="fw3 f6 ttu tracked gray">
+                    {menu.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="mr4">
+                <Link to="/search" className="fw3 f6 gray">
+                  <i className="fa fa-search" />
+                </Link>
+              </li>
+            </ul>
+
+            <div
+              className={classnames('bg-near-white', {
+                'a-slide-down-out': !this.state.menuVisible,
+                'a-slide-down-in': this.state.menuVisible
+              })}
+            >
+              <ul className="list pa0 ma0">
+                {MENU.map(menu => (
+                  <li className="pa3" key={menu.label}>
+                    <Link to={menu.target} className="fw3 f6 ttu tracked gray">
+                      {menu.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="clip-ns flex items-center pv2 ph3">
+              <a href="#" className="f3 flex items-center" onClick={this.doToggleMenu}>
+                <i className="fa fa-bars" />
+                <span className="ml2 f5 fw3 ttu tracked gray">Nhà Của Na</span>
+              </a>
+              <Link to="/search" className="fw3 f6 gray ml-auto">
+                <i className="fa fa-search" />
+              </Link>
+            </div>
+          </nav>
+        </header>
+
+        <main>{children()}</main>
+
+        <footer className="mt4-ns">
+          <section className="mt4-ns">
+            <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} />
+          </section>
+
+          <div className="mw8-ns center mt4-ns mb3">
+            <div className="flex flex-column justify-start flex-row-ns items-center ph3 pa0-ns">
+              <p className="mt0 lh-copy f6 gray">
+                {new Date().getFullYear()} Bản quyền thuộc về Na. Ghi rõ nguồn khi chia sẻ.
+              </p>
+              <div className="ml-auto-ns w-100 w-10-ns">
+                <a href="https://www.contentful.com/" rel="noopener noreferrer" target="_blank" className="mw4 db">
+                  <img
+                    src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
+                    alt="Powered by Contentful"
+                  />
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </footer>
-  </section>
-)
+        </footer>
+      </section>
+    )
+  }
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func

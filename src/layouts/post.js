@@ -53,9 +53,9 @@ function showRelatedPosts(props) {
   return (
     <section>
       <header className="tc pv4 f6 ttu tracked">Bạn đừng bỏ qua</header>
-      <div className="flex flex-column flex-row-ns justify-center">
+      <div className="pa3 pa0-ns flex flex-column flex-row-ns justify-center">
         {relatedPosts.edges.map(post => (
-          <div key={post.node.id} className="w-20-ns pr3 tc">
+          <div key={post.node.id} className="w-20-ns pr3-ns tc">
             <Post post={post.node} noExcerpt />
           </div>
         ))}
@@ -77,17 +77,17 @@ export default function(props) {
       <BigBanner title={post.title} bgImage={post.featuredImage} href="/" />
 
       <div className="mw8-ns center">
-        <article className="pb4 bb b--light-gray">
-          <h1 className="f2 tc gw6 ttu gold">{post.title}</h1>
+        <article className="pa3 pb4-ns bb b--light-gray">
+          <h1 className="lh-copy f2-ns f3 tc gw6 ttu gold">{post.title}</h1>
 
-          <div className="db tc f5 mb4">
-            <span className="mr4">
+          <div className="flex flex-column flex-row-ns items-center justify-center db tc f5 mb4">
+            <span className="mb3 mr4-ns">
               <i className="fa fa-calendar mr2" />
               {date}
             </span>
             <ul className="dib list pa0 ma0">
               {post.tags.map(tag => (
-                <li className="dib mr2 ba b--gold pv2 ph3" key={tag.slug}>
+                <li className="dib mr2 ba b--gold pv2 ph3 mv1" key={tag.slug}>
                   <i className="gold fa fa-tag" />
                   <a href={`/tag/${tag.slug}`} className="ml1 f5">
                     {tag.title}
