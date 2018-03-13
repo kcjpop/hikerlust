@@ -12,7 +12,7 @@ class Instafeed extends React.Component {
 
   getFeed() {
     axios.get(`https://www.instagram.com/${this.props.handle}/?__a=1`).then(result => {
-      const media = result.data.user.media.nodes.slice(0, 10)
+      const media = result.data.graphql.user.edge_owner_to_timeline_media.edges.slice(0, 10)
       this.setState({ media })
     })
   }
@@ -21,16 +21,16 @@ class Instafeed extends React.Component {
     const { handle, ...rest } = this.props
     return (
       <div className="w-100 flex flex-wrap" {...rest}>
-        {this.state.media.map(media => (
-          <div className="w-20 w-10-ns" key={media.code}>
+        {this.state.media.map(({ node }) => (
+          <div className="w-20 w-10-ns" key={node.id}>
             <a
               className="db"
               rel="noopener noreferrer"
               target="_blank"
-              href={`https://www.instagram.com/p/${media.code}`}
-              title={media.caption}
+              href={`https://www.instagram.com/p/${node.shortcode}`}
+              title={node.caption}
             >
-              <img src={media.thumbnail_resources[1].src} />
+              <img src={node.thumbnail_src} />
             </a>
           </div>
         ))}
