@@ -33,6 +33,19 @@ button {
   line-height: 1.5;
 }
 
+.js-content a,
+.js-content a:link,
+.js-content a:visited {
+  text-decoration: none;
+  color: var(--gold);
+  transition: border-style 0.3s ease-in;
+  border-bottom: 1px solid var(--gold);
+}
+
+.js-content a:hover {
+  border-bottom: 1px dashed var(--gold);
+}
+
 .js-content h1 {
   font-size: 3rem;
   font-weight: 600;

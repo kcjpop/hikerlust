@@ -81,7 +81,7 @@ export default function(props) {
           <h1 className="lh-copy f2-ns f3 tc gw6 ttu gold">{post.title}</h1>
 
           <div className="flex flex-column flex-row-ns items-center justify-center db tc f5 mb4">
-            <span className="mb3 mr4-ns">
+            <span className="mb3 mb0-ns mr4-ns">
               <i className="fa fa-calendar mr2" />
               {date}
             </span>
