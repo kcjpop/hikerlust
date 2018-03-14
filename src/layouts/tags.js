@@ -30,7 +30,8 @@ export const query = graphql`
 `
 
 function main(props) {
-  return <PostList posts={props.data.posts.edges} title={`Bài viết thuộc chủ đề “${props.pathContext.title}”`} />
+  const posts = props.data.posts != null ? props.data.posts.edges : []
+  return <PostList posts={posts} title={`Bài viết thuộc chủ đề “${props.pathContext.title}”`} />
 }
 
 function sidebar(props) {
