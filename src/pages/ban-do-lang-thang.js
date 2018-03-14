@@ -240,13 +240,13 @@ function makeInfoWindowContent(place) {
 const Map = withScriptjs(
   withGoogleMap(function(props) {
     const { places, infoWindowOpen } = props
-    const [center] = places
+
     return (
       <div className={classnames('mw8-ns center', props.className)}>
         <GoogleMap
           ref={props.mapRef}
           defaultZoom={3}
-          defaultCenter={{ lat: center.node.location.lat, lng: center.node.location.lon }}
+          defaultCenter={{ lat: 46.270617, lng: 66.86775 }}
           defaultOptions={{
             styles: MAP_STYLES,
             mapTypeControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP }
@@ -275,10 +275,14 @@ class LocationAccordion extends React.Component {
   }
 
   sortPlaces(places) {
-    return places.reduce((acc, { node }) => {
+    const obj = places.reduce((acc, { node }) => {
       const country = acc[node.country] || []
       return { ...acc, [node.country]: [...country, node] }
     }, {})
+
+    return Object.entries(obj)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .reduce((acc, [key, val]) => ({ ...acc, [key]: val }), {})
   }
 
   countPosts(subplaces) {
@@ -308,16 +312,11 @@ class LocationAccordion extends React.Component {
             <div className="mb3" key={country}>
               <button
                 type="button"
-                className="outline-0 db bn bg-transparent pointer f4 gold fw3 ma0 pa0"
+                className="outline-0 db bn bg-transparent pointer f4 gold fw3 ma0 pa0 w-100 tl"
                 onClick={this.doToggleExpand(country)}
               >
                 <span className="dib w1 tc">{this.getCountryListIcon(country)}</span>
-                <span className="pl2 inline-flex items-center" title="bài viết">
-                  {country}
-                  <small className="ml1 w1 h1 br-100 bg-gold white f6 inline-flex items-center justify-center">
-                    {this.countPosts(subplaces)}
-                  </small>
-                </span>
+                <span className="pl2">{country}</span>
               </button>
               <ul className={classnames('list', { clip: !this.isExpanded(country) })} style={{ paddingLeft: '1.5rem' }}>
                 {subplaces.map(place => (
