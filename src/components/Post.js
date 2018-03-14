@@ -37,7 +37,7 @@ export default function Post(props) {
         <div className="mb2 h5 cover bg-center" style={{ backgroundImage: `url(${post.featuredImage})` }} />
       </Link>
 
-      <h4 className="mv2 h3">
+      <h4 className="mv2 h3-ns">
         <Link className="f5 ttu tracked fw6" to={`/${post.slug}`}>
           {post.title}
         </Link>
