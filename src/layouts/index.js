@@ -55,7 +55,7 @@ class TemplateWrapper extends React.Component {
           <link rel="apple-touch-icon" sizes="114x114" href={logo114} />
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
         </Helmet>
-        <header>
+        <header id="header">
           <div className="bg-dark-gray" style={{ height: '.25rem' }} />
 
           <nav className="bb b--light-gray">
@@ -106,6 +106,12 @@ class TemplateWrapper extends React.Component {
         <main>{children()}</main>
 
         <footer className="mt4-ns">
+          <div className="fixed bottom-1 right-1 z3">
+            <a href="#header" className="w3 h3 flex flex-column items-center justify-center bg-dark-gray gold br2">
+              <i className="fa fa-arrow-up" />
+              <span className="mt2 ttu">TOP</span>
+            </a>
+          </div>
           <section className="mt4-ns">
             <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} />
           </section>
