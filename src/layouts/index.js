@@ -110,13 +110,18 @@ class TemplateWrapper extends React.Component {
             <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} />
           </section>
 
-          <div className="mw8-ns center mt4-ns mb3">
-            <div className="flex flex-column justify-start flex-row-ns items-center ph3 pa0-ns">
+          <div className="mw8-ns center mt3 mt4-ns mb3">
+            <div className="flex flex-column justify-center flex-row-ns items-center ph3 pa0-ns">
               <p className="mt0 lh-copy f6 gray">
                 {new Date().getFullYear()} Bản quyền thuộc về Na. Ghi rõ nguồn khi chia sẻ.
               </p>
-              <div className="ml-auto-ns w-100 w-10-ns">
-                <a href="https://www.contentful.com/" rel="noopener noreferrer" target="_blank" className="mw4 db">
+              <div className="ml-auto w-100 w-10-ns tc tr-ns">
+                <a
+                  href="https://www.contentful.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="mw3 mw4-ns dib w-100"
+                >
                   <img
                     src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
                     alt="Powered by Contentful"
