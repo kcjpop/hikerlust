@@ -86,7 +86,7 @@ export default function(props) {
             </span>
             <ul className="dib list pa0 ma0">
               {post.tags.map(tag => (
-                <li className="br2 dib pv1 ph2 mr2 ba b--gold" key={tag.slug}>
+                <li className="br2 dib pv1 ph2 mb2 mr2 ba b--gold" key={tag.slug}>
                   <i className="gold fa fa-tag" />
                   <a href={`/tag/${tag.slug}`} className="ml1 f5">
                     {tag.title}
