@@ -5,6 +5,10 @@ import PropTypes from 'prop-types'
 import Instafeed from '@/components/Instafeed'
 import classnames from 'classnames'
 
+import logo57 from './img/logo57.png'
+import logo72 from './img/logo72.png'
+import logo114 from './img/logo114.png'
+
 import './index.css'
 
 export const query = graphql`
@@ -45,6 +49,10 @@ class TemplateWrapper extends React.Component {
         <Helmet>
           <title>{data.site.siteMetadata.title}</title>
           <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+          <link rel="shortcut icon" href={logo57} type="image/x-icon" />
+          <link rel="apple-touch-icon" href={logo57} />
+          <link rel="apple-touch-icon" sizes="72x72" href={logo72} />
+          <link rel="apple-touch-icon" sizes="114x114" href={logo114} />
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
         </Helmet>
         <header>

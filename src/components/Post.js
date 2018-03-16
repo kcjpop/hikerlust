@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import fecha from '@/helpers/fecha'
+import { formatPostDate } from '@/helpers/fecha'
 
 export const singlePostFragment = graphql`
   fragment SimpleSinglePostFragment on ContentfulPost {
@@ -29,7 +29,6 @@ export const singlePostFragment = graphql`
 
 export default function Post(props) {
   const { post, noExcerpt, ...rest } = props
-  const date = fecha.format(new Date(post.originallyCreatedAt || post.createdAt), 'DD MMMM, YYYY')
 
   return (
     <article {...rest}>
@@ -42,7 +41,7 @@ export default function Post(props) {
           {post.title}
         </Link>
       </h4>
-      <p className="lh-copy mid-gray f6 mt3 mb2 fw3">{date}</p>
+      <p className="lh-copy mid-gray f6 mt3 mb2 fw3">{formatPostDate(post)}</p>
       {!noExcerpt ? <p className="mb0 lh-copy f6 mid-gray tl">{post.excerpt}</p> : null}
     </article>
   )

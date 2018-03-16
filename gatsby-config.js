@@ -12,6 +12,7 @@ if (fs.existsSync(envPath)) {
 module.exports = {
   siteMetadata: {
     title: 'Nhà của Na',
+    url: 'https://hikerlust.com',
     defaultCover: 'https://res.cloudinary.com/hikerlust/image/upload/v1520256999/DSC09559-1_1_b8syui.jpg',
     socials: {
       instagramHandle: 'hikerlust',
@@ -33,6 +34,7 @@ module.exports = {
     }
   },
   plugins: [
+    'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-contentful',

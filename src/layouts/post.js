@@ -6,13 +6,15 @@ import Markdown from 'react-markdown'
 import BigBanner from '@/components/BigBanner'
 import GoogleAds from '@/components/GoogleAds'
 import Post from '@/components/Post'
+import MetaHelmet from '@/components/MetaHelmet'
 
-import fecha from '@/helpers/fecha'
+import { formatPostDate } from '@/helpers/fecha'
 
 export const query = graphql`
   query SinglePost($id: String, $tagId: String) {
     site {
       siteMetadata {
+        url
         ads {
           slot1 {
             layout
@@ -65,14 +67,11 @@ function showRelatedPosts(props) {
 }
 
 export default function(props) {
-  const { post, site: { siteMetadata: { ads: { slot1, slot2 } } } } = props.data
-  const date = fecha.format(new Date(post.originallyCreatedAt || post.createdAt), 'DD MMMM, YYYY')
+  const { post, site: { siteMetadata: { url, ads: { slot1, slot2 } } } } = props.data
 
   return (
     <div>
-      <Helmet>
-        <title>{post.title}</title>
-      </Helmet>
+      <MetaHelmet url={url} location={props.location} post={post} />
 
       <BigBanner title={post.title} bgImage={post.featuredImage} href="/" />
 
@@ -83,7 +82,7 @@ export default function(props) {
           <div className="flex flex-column flex-row-ns items-center justify-center db tc f5 mb4">
             <span className="mb3 mb0-ns mr4-ns">
               <i className="fa fa-calendar mr2" />
-              {date}
+              {formatPostDate(post)}
             </span>
             <ul className="dib list pa0 ma0">
               {post.tags.map(tag => (
