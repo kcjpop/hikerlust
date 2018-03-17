@@ -5,8 +5,8 @@ import TagCloud from './TagCloud'
 export default function(props) {
   return (
     <div>
-      <section className="mb3">
-        <header className="tc pv3 ba b--silver f6 ttu tracked">Về Na</header>
+      <section className="mb4">
+        <header className="tc pv3 ba b--gold gold fw6 f6 ttu tracked">Về Na</header>
         <main className="lh-copy">
           <p className="mv3 tc">
             <img
@@ -19,8 +19,8 @@ export default function(props) {
         </main>
       </section>
 
-      <section className="mb3">
-        <header className="tc pv3 ba b--silver f6 ttu tracked">Theo dõi Na</header>
+      <section className="mb4">
+        <header className="tc pv3 ba b--gold gold fw6 f6 ttu tracked">Theo dõi Na</header>
         <main className="lh-copy tc pt3">
           <a href="" className="mh2 f3">
             <i className="fa fa-facebook-square" />
@@ -37,8 +37,8 @@ export default function(props) {
         </main>
       </section>
 
-      <section className="mb3">
-        <header className="tc pv3 ba b--silver f6 ttu tracked">Tags</header>
+      <section className="mb4">
+        <header className="tc pv3 ba b--gold gold fw6 f6 ttu tracked">Tags</header>
         <main className="lh-copy tc pv3">
           <TagCloud tags={props.tags} />
         </main>

@@ -54,7 +54,7 @@ function showRelatedPosts(props) {
 
   return (
     <section>
-      <header className="tc pv4 f6 ttu tracked">Bạn đừng bỏ qua</header>
+      <h6 className="tc pv2 f6 ttu tracked gold fw7">Bạn đừng bỏ qua</h6>
       <div className="pa3 pa0-ns flex flex-column flex-row-ns justify-center">
         {relatedPosts.edges.map(post => (
           <div key={post.node.id} className="w-20-ns pr3-ns tc">

@@ -6,7 +6,7 @@ export default function(props) {
   const { title, posts, ...rest } = props
   return (
     <div {...rest}>
-      <div className="tc pv3 ba b--silver f6 ttu tracked">{title}</div>
+      <div className="tc pv3 ba b--gold f6 ttu tracked gold fw6">{title}</div>
       <div className="flex flex-wrap mt3">
         {posts.map((post, index) => (
           <Post

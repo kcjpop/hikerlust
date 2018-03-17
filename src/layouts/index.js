@@ -112,7 +112,9 @@ class TemplateWrapper extends React.Component {
               <span className="mt2 ttu">TOP</span>
             </a>
           </div>
+
           <section className="mt4-ns">
+            <h6 className="tc pt3 f6 ttu tracked gold fw7">Instagram của Na</h6>
             <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} />
           </section>
 

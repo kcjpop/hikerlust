@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400');
 
 @import './tachyons/tachyons.css';
 @import './styles/variables.css';
@@ -37,6 +38,7 @@ button {
 
 .js-content {
   line-height: 1.5;
+  font-family: 'Roboto Slab', serif;
 }
 
 .js-content a,
@@ -85,6 +87,7 @@ button {
 .js-content p,
 .js-content ul {
   font-size: 1.1rem;
+  line-height: 1.7;
 }
 
 .js-content li {

@@ -37,7 +37,7 @@ export default function Post(props) {
       </Link>
 
       <h4 className="mv2 h3-ns">
-        <Link className="f5 ttu tracked fw6" to={`/${post.slug}`}>
+        <Link className="f5 ttu tracked fw6 lh-copy" to={`/${post.slug}`}>
           {post.title}
         </Link>
       </h4>
