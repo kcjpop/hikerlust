@@ -7,6 +7,7 @@ import BigBanner from '@/components/BigBanner'
 import GoogleAds from '@/components/GoogleAds'
 import Post from '@/components/Post'
 import MetaHelmet from '@/components/MetaHelmet'
+import FacebookComment from '@/components/FacebookComment'
 
 import { formatPostDate } from '@/helpers/fecha'
 
@@ -53,7 +54,7 @@ function showRelatedPosts(props) {
   if (!relatedPosts || relatedPosts.edges.length === 0) return
 
   return (
-    <section>
+    <section className="mb4-ns">
       <h6 className="tc pv2 f6 ttu tracked gold fw7">Bạn đừng bỏ qua</h6>
       <div className="pa3 pa0-ns flex flex-column flex-row-ns justify-center">
         {relatedPosts.edges.map(post => (
@@ -66,8 +67,18 @@ function showRelatedPosts(props) {
   )
 }
 
+function showComments(currentUrl) {
+  return (
+    <section className="mw8-ns center bt b--light-gray pt2">
+      <h6 className="tc pv2 f6 ttu tracked gold fw7">Bình luận</h6>
+      <FacebookComment data-href={currentUrl} data-width="100%" />
+    </section>
+  )
+}
+
 export default function(props) {
   const { post, site: { siteMetadata: { url, ads: { slot1, slot2 } } } } = props.data
+  const currentUrl = `${url}${props.location.pathname}`
 
   return (
     <div>
@@ -105,6 +116,8 @@ export default function(props) {
       </div>
 
       {showRelatedPosts(props)}
+
+      {showComments(currentUrl)}
     </div>
   )
 }

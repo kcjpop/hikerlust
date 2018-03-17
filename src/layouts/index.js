@@ -47,6 +47,7 @@ class TemplateWrapper extends React.Component {
     return (
       <section>
         <Helmet>
+          <meta property="fb:pages" content="229412677587462" />
           <title>{data.site.siteMetadata.title}</title>
           <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
           <link rel="shortcut icon" href={logo57} type="image/x-icon" />
@@ -54,7 +55,13 @@ class TemplateWrapper extends React.Component {
           <link rel="apple-touch-icon" sizes="72x72" href={logo72} />
           <link rel="apple-touch-icon" sizes="114x114" href={logo114} />
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+          <script
+            id="facebook-jssdk"
+            async
+            src="//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=157432601537413&autoLogAppEvents=1"
+          />
         </Helmet>
+        <div id="fb-root" />
         <header id="header">
           <div className="bg-dark-gray" style={{ height: '.25rem' }} />
 

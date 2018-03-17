@@ -36,6 +36,10 @@ button {
   }
 }
 
+.fb-comments iframe {
+  width: 100%;
+}
+
 .js-content {
   line-height: 1.5;
   font-family: 'Roboto Slab', serif;
