@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400');
 
 @import './tachyons/tachyons.css';
 @import './styles/variables.css';
@@ -116,4 +116,8 @@ button {
 
 .no-last-border:last-child {
   border: none;
+}
+
+.mt-auto {
+  margin-top: auto;
 }
