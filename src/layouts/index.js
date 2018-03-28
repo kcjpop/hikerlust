@@ -55,11 +55,6 @@ class TemplateWrapper extends React.Component {
           <link rel="apple-touch-icon" sizes="72x72" href={logo72} />
           <link rel="apple-touch-icon" sizes="114x114" href={logo114} />
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
-          <script
-            id="facebook-jssdk"
-            async
-            src="//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=157432601537413&autoLogAppEvents=1"
-          />
         </Helmet>
         <div id="fb-root" />
         <header id="header">

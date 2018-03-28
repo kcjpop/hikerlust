@@ -7,7 +7,7 @@ import BigBanner from '@/components/BigBanner'
 import GoogleAds from '@/components/GoogleAds'
 import Post from '@/components/Post'
 import MetaHelmet from '@/components/MetaHelmet'
-import FacebookComment from '@/components/FacebookComment'
+import FacebookProvider, { Comments } from 'react-facebook'
 
 import { formatPostDate } from '@/helpers/fecha'
 
@@ -71,7 +71,9 @@ function showComments(currentUrl) {
   return (
     <section className="mw8-ns center bt b--light-gray pt2">
       <h6 className="tc pv2 f6 ttu tracked gold fw7">Bình luận</h6>
-      <FacebookComment data-href={currentUrl} data-width="100%" />
+      <FacebookProvider appId="157432601537413" language="vi_VN">
+        <Comments href={currentUrl} width="100%" />
+      </FacebookProvider>
     </section>
   )
 }
