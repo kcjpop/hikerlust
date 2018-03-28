@@ -16,7 +16,10 @@ module.exports = {
     defaultCover: 'https://res.cloudinary.com/hikerlust/image/upload/v1520256999/DSC09559-1_1_b8syui.jpg',
     socials: {
       instagramHandle: 'hikerlust',
-      instagramUrl: 'https://www.instagram.com/hikerlust/'
+      instagramUrl: 'https://www.instagram.com/hikerlust/',
+      facebookUrl: 'https://www.facebook.com/hikerlust/',
+      pinterestUrl: 'https://fi.pinterest.com/ngocanhng/',
+      linkedInUrl: 'https://fi.linkedin.com/in/ngocanhng'
     },
     ads: {
       slot1: {

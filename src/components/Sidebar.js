@@ -22,17 +22,17 @@ export default function(props) {
       <section className="mb4">
         <header className="tc pv3 ba b--gold gold fw6 f6 ttu tracked">Theo dõi Na</header>
         <main className="lh-copy tc pt3">
-          <a href="" className="mh2 f3">
+          <a href={props.socials.facebookUrl} className="mh2 f3">
             <i className="fa fa-facebook-square" />
           </a>
-          <a href="" className="mh2 f3">
+          <a href={props.socials.instagramUrl} className="mh2 f3">
             <i className="fa fa-instagram" />
           </a>
-          <a href="" className="mh2 f3">
+          <a href={props.socials.pinterestUrl} className="mh2 f3">
             <i className="fa fa-pinterest-square" />
           </a>
-          <a href="" className="mh2 f3">
-            <i className="fa fa-twitter-square" />
+          <a href={props.socials.linkedInUrl} className="mh2 f3">
+            <i className="fa fa-linkedin-square" />
           </a>
         </main>
       </section>

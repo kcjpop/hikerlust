@@ -12,6 +12,12 @@ export const query = graphql`
       siteMetadata {
         title
         defaultCover
+        socials {
+          instagramUrl
+          facebookUrl
+          pinterestUrl
+          linkedInUrl
+        }
       }
     }
     tags: allContentfulTag(sort: { fields: [slug], order: ASC }) {
@@ -32,7 +38,7 @@ function main(props) {
 }
 
 function sidebar(props) {
-  return <Sidebar tags={props.data.tags} />
+  return <Sidebar tags={props.data.tags} socials={props.data.site.siteMetadata.socials} />
 }
 
 export default function(props) {
