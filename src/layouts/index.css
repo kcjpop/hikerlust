@@ -121,3 +121,9 @@ button {
 .mt-auto {
   margin-top: auto;
 }
+
+@media (--breakpoint-not-small) {
+  .big-banner-height {
+    height: 40rem;
+  }
+}
