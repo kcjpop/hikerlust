@@ -114,6 +114,26 @@ button {
   margin-top: 0.5rem;
 }
 
+.js-content table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.js-content table thead th {
+  vertical-align: bottom;
+  border-bottom: 0.2rem solid var(--silver);
+  padding: 0.75rem;
+}
+
+.js-content table tbody td,
+.js-content table tbody th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-bottom: 0.1rem solid var(--gray);
+}
+
 .no-last-border:last-child {
   border: none;
 }
