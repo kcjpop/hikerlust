@@ -17,15 +17,20 @@ export const TagCloudFragment = graphql`
   }
 `
 
+function filterTags(tags) {
+  return tags.map(({ node }) => ({ ...node, count: countTagPost(node) })).filter(tag => tag.count > 1)
+}
+
 export default function(props) {
+  const tags = filterTags(props.tags.edges)
   return (
     <ul className="list pa0 ma0 tl">
-      {props.tags.edges.map(({ node }) => (
-        <li className="dib" key={node.id}>
-          <Link to={`/tag/${node.slug}`} className="br2 db pv1 ph2 mr2 mb3 ba b--gold gold flex items-center">
-            {node.title}
-            <span className="ml1 w1 h1 br-100 bg-gold white f6 inline-flex items-center justify-center">
-              {countTagPost(node)}
+      {tags.map(tag => (
+        <li className="dib" key={tag.id}>
+          <Link to={`/tag/${tag.slug}`} className="br2 db pv1 ph2 mr2 mb3 ba b--gold gold flex items-center">
+            {tag.title}
+            <span className="ml1 w1 h1 br-100 bg-gold white f6 pa1 inline-flex items-center justify-center">
+              {tag.count}
             </span>
           </Link>
         </li>
