@@ -5,9 +5,10 @@ import PostList from '@/components/PostList'
 import BigBanner from '@/components/BigBanner'
 import Sidebar from '@/components/Sidebar'
 import TwoColumnLayout from '@/components/TwoColumnLayout'
+import Paginator from '@/components/Paginator'
 
 export const query = graphql`
-  query SingleTag($id: String) {
+  query SingleTag {
     site {
       siteMetadata {
         defaultCover
@@ -22,22 +23,18 @@ export const query = graphql`
     tags: allContentfulTag(sort: { fields: [slug], order: ASC }) {
       ...TagCloudFragment
     }
-    posts: allContentfulPost(
-      filter: { tags: { id: { eq: $id } } }
-      sort: { fields: [originallyCreatedAt, createdAt], order: DESC }
-    ) {
-      edges {
-        node {
-          ...SinglePostFragment
-        }
-      }
-    }
   }
 `
 
 function main(props) {
-  const posts = props.data.posts != null ? props.data.posts.edges : []
-  return <PostList posts={posts} title={`Bài viết thuộc chủ đề “${props.pathContext.title}”`} />
+  const posts = (props.pathContext.group || []).map(node => ({ node }))
+
+  return (
+    <div>
+      <PostList posts={posts} title={`Bài viết thuộc chủ đề “${props.pathContext.title}”`} />
+      <Paginator {...props.pathContext} />
+    </div>
+  )
 }
 
 function sidebar(props) {
