@@ -27,7 +27,15 @@ export const query = graphql`
 const MENU = [
   { label: 'Nhà Của Na', target: '/' },
   { label: 'Bản Đồ Lang Thang', target: '/ban-do-lang-thang' },
-  { label: 'Lang Thang Khắp Chốn', target: '/' },
+  {
+    label: 'Lang Thang Khắp Chốn',
+    target: '#',
+    children: [
+      { label: 'Lang thang Châu Á', target: '/tag/lang-thang-chau-a' },
+      { label: 'Lang thang Châu Âu', target: '/tag/lang-thang-chau-au' },
+      { label: 'Lang thang Việt Nam', target: '/tag/lang-thang-viet-nam' }
+    ]
+  },
   { label: 'Bí Kíp Lang Thang', target: '/' },
   { label: 'Về Na Và Hikerlust', target: '/ve-na-va-hikerlust' }
 ]
@@ -61,12 +69,23 @@ class TemplateWrapper extends React.Component {
           <div className="bg-dark-gray" style={{ height: '.25rem' }} />
 
           <nav className="bb b--light-gray">
-            <ul className="list pv3 ma0 flex items-center mw8-ns center clip-s">
+            <ul className="list ma0 flex items-center mw8-ns center clip-s">
               {MENU.map(menu => (
-                <li className="mr4" key={menu.label}>
+                <li className="mr4 pv4 relative home-menu" key={menu.label}>
                   <Link to={menu.target} className="fw3 f6 ttu tracked gray">
                     {menu.label}
                   </Link>
+                  {menu.children == null ? null : (
+                    <ul className="list ma0 pa0 absolute left-0 right-0 z-2" style={{ top: '100%' }}>
+                      {menu.children.map(submenu => (
+                        <li key={submenu.label} className="bg-white-90">
+                          <Link className="db ttu pa3 lh-copy" to={submenu.target}>
+                            {submenu.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
               <li className="mr4">
@@ -88,6 +107,17 @@ class TemplateWrapper extends React.Component {
                     <Link to={menu.target} className="fw3 f6 ttu tracked gray">
                       {menu.label}
                     </Link>
+                    {menu.children == null ? null : (
+                      <ul className="list mt3 pl3" style={{ listStyleType: 'circle' }}>
+                        {menu.children.map(submenu => (
+                          <li key={submenu.label}>
+                            <Link className="db fw3 f6 pt3 ttu tracked gray" to={submenu.target}>
+                              {submenu.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -147,3 +147,15 @@ button {
     height: 40rem;
   }
 }
+
+.home-menu > ul {
+  display: none;
+}
+
+.home-menu:hover > ul {
+  display: block;
+}
+
+.home-menu > ul li:hover {
+  background-color: var(--white);
+}
