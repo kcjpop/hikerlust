@@ -1,4 +1,5 @@
 const uniqBy = require('lodash/uniqBy')
+const sortBy = require('lodash/sortBy')
 const path = require('path')
 const createPaginatedPages = require('gatsby-paginate')
 
@@ -33,7 +34,10 @@ function generateTags({ graphql, boundActionCreators: { createPage } }) {
     result.data.tags.edges.forEach(edge => {
       createPaginatedPages({
         createPage,
-        edges: uniqBy(edge.node.post || [], item => item.id),
+        edges: sortBy(
+          uniqBy(edge.node.post || [], item => item.id),
+          item => item.originallyCreatedAt || item.createdAt
+        ).reverse(),
         pathPrefix: `tag/${edge.node.slug}`,
         pageTemplate: component,
         context: edge.node
@@ -77,7 +81,7 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
   return graphql(
     `
       query AllPosts {
-        posts: allContentfulPost {
+        posts: allContentfulPost(sort: { fields: [originallyCreatedAt, createdAt], order: DESC }) {
           edges {
             node {
               id
