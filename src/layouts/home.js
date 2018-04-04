@@ -5,6 +5,7 @@ import PostList from '@/components/PostList'
 import BigBanner from '@/components/BigBanner'
 import Sidebar from '@/components/Sidebar'
 import TwoColumnLayout from '@/components/TwoColumnLayout'
+import Paginator from '@/components/Paginator'
 
 export const query = graphql`
   query LatestPosts {
@@ -23,18 +24,16 @@ export const query = graphql`
     tags: allContentfulTag(sort: { fields: [slug], order: ASC }) {
       ...TagCloudFragment
     }
-    posts: allContentfulPost(limit: 10, sort: { fields: [originallyCreatedAt, createdAt], order: DESC }) {
-      edges {
-        node {
-          ...SimpleSinglePostFragment
-        }
-      }
-    }
   }
 `
 
 function main(props) {
-  return <PostList title="Bài viết mới" posts={props.data.posts.edges} />
+  return (
+    <div>
+      <PostList title="Bài viết mới" posts={props.pathContext.group} />
+      <Paginator {...props.pathContext} />
+    </div>
+  )
 }
 
 function sidebar(props) {
@@ -42,7 +41,6 @@ function sidebar(props) {
 }
 
 export default function(props) {
-  const posts = props.data.posts.edges
   const { site, tags } = props.data
 
   return (

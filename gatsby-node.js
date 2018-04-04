@@ -1,4 +1,5 @@
 const path = require('path')
+const createPaginatedPages = require('gatsby-paginate')
 
 function generateTags({ graphql, boundActionCreators: { createPage } }) {
   return graphql(
@@ -70,6 +71,10 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
               id
               title
               slug
+              featuredImage
+              createdAt
+              originallyCreatedAt
+              excerpt
               tags {
                 id
                 post {
@@ -85,6 +90,12 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
     if (result.errors) return reject(result.errors)
 
     const component = path.resolve(__dirname, 'src/layouts/post.js')
+    createPaginatedPages({
+      createPage,
+      edges: result.data.posts.edges,
+      pageTemplate: path.resolve(__dirname, 'src/layouts/home.js')
+    })
+
     result.data.posts.edges.forEach(edge => {
       // @TODO: Should define a tag for relating posts
       const [tag] = [...edge.node.tags].sort((a, b) => {

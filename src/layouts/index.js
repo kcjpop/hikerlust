@@ -105,7 +105,7 @@ class TemplateWrapper extends React.Component {
           </nav>
         </header>
 
-        <main>{children()}</main>
+        <main>{typeof children === 'function' ? children() : children}</main>
 
         <footer className="mt4-ns">
           <div className="fixed bottom-1 right-1 z3">
