@@ -105,13 +105,14 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
   ).then(result => {
     if (result.errors) return reject(result.errors)
 
-    const component = path.resolve(__dirname, 'src/layouts/post.js')
     createPaginatedPages({
       createPage,
+      pageLength: 13,
       edges: result.data.posts.edges,
       pageTemplate: path.resolve(__dirname, 'src/layouts/home.js')
     })
 
+    const component = path.resolve(__dirname, 'src/layouts/post.js')
     result.data.posts.edges.forEach(edge => {
       // @TODO: Should define a tag for relating posts
       const [tag] = [...edge.node.tags].sort((a, b) => {
