@@ -18,7 +18,8 @@ export const TagCloudFragment = graphql`
 `
 
 function filterTags(tags) {
-  return tags.map(({ node }) => ({ ...node, count: countTagPost(node) })).filter(tag => tag.count > 1)
+  const MIN_POST_TO_SHOW = 3
+  return tags.map(({ node }) => ({ ...node, count: countTagPost(node) })).filter(tag => tag.count >= MIN_POST_TO_SHOW)
 }
 
 export default function(props) {
