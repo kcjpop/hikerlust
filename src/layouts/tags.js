@@ -41,8 +41,14 @@ function sidebar(props) {
   return <Sidebar tags={props.data.tags} socials={props.data.site.siteMetadata.socials} />
 }
 
-export default function(props) {
+function getFirstCover(props) {
   const { site } = props.data
+  const [post] = props.pathContext.group || []
+  return post != null ? post.featuredImage : site.siteMetadata.defaultCover
+}
+
+export default function(props) {
+  const bgImage = getFirstCover(props)
   const tag = props.pathContext
   return (
     <div>
@@ -50,7 +56,7 @@ export default function(props) {
         <title>{tag.title}</title>
       </Helmet>
 
-      <BigBanner title={tag.title} bgImage={site.siteMetadata.defaultCover} href="/" />
+      <BigBanner title={tag.title} bgImage={bgImage} href="/" />
 
       <div className="mw8-ns center">
         <TwoColumnLayout main={() => main(props)} sidebar={() => sidebar(props)} />
