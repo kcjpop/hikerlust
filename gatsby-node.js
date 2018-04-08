@@ -40,7 +40,7 @@ function generateTags({ graphql, boundActionCreators: { createPage } }) {
         ).reverse(),
         pathPrefix: `tag/${edge.node.slug}`,
         pageTemplate: component,
-        context: edge.node
+        context: { tag: edge.node }
       })
     })
   })

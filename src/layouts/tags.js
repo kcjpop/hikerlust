@@ -28,10 +28,11 @@ export const query = graphql`
 
 function main(props) {
   const posts = (props.pathContext.group || []).map(node => ({ node }))
+  const { tag } = props.pathContext.additionalContext
 
   return (
     <div>
-      <PostList posts={posts} title={`Bài viết thuộc chủ đề “${props.pathContext.title}”`} />
+      <PostList posts={posts} title={`Bài viết thuộc chủ đề “${tag.title}”`} />
       <Paginator {...props.pathContext} />
     </div>
   )
@@ -49,7 +50,7 @@ function getFirstCover(props) {
 
 export default function(props) {
   const bgImage = getFirstCover(props)
-  const tag = props.pathContext
+  const { tag } = props.pathContext.additionalContext
   return (
     <div>
       <Helmet>
