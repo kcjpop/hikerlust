@@ -42,16 +42,16 @@ function sidebar(props) {
 }
 
 function showHighlightPosts(posts) {
-  console.log(posts)
   return (
     <div className="home-highlight-posts">
       {posts.map(({ node }) => (
         <div
+          key={node.id}
           className="home-highlight-posts__post cover flex items-center justify-center relative"
           style={{ backgroundImage: `url(${node.featuredImage})` }}
         >
           <div className="absolute absolute--fill z-1 bg-white-20" />
-          <div className="mh4 pa3 z-2 bg-black-80">
+          <div className="ma3 pa3 z-2 bg-black-80">
             <Link to={`/${node.slug}`} className="f4 f-serif lh-copy" style={{ color: '#fff' }}>
               {node.title}
             </Link>

@@ -168,12 +168,19 @@ button {
 }
 
 .home-highlight-posts {
-  display: grid;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: 12rem 12rem;
-  grid-gap: 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.home-highlight-posts__post:first-child {
-  grid-row: 1 / span 2;
+@media (--breakpoint-not-small) {
+  .home-highlight-posts {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 12rem 12rem;
+    grid-gap: 0.5rem 0.5rem;
+  }
+
+  .home-highlight-posts__post:first-child {
+    grid-row: 1 / span 2;
+  }
 }
