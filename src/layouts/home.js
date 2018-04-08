@@ -43,7 +43,7 @@ function sidebar(props) {
 
 function showHighlightPosts(posts) {
   return (
-    <div className="home-highlight-posts">
+    <div className="home-highlight-posts mt3 mt4-ns">
       {posts.map(({ node }) => (
         <div
           key={node.id}
