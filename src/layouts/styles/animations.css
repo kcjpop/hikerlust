@@ -5,5 +5,5 @@
 }
 .a-slide-down-in {
   transition: max-height 0.5s ease-in-out;
-  max-height: 50vh;
+  max-height: 75vh;
 }

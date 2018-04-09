@@ -8,6 +8,7 @@ import classnames from 'classnames'
 import logo57 from './img/logo57.png'
 import logo72 from './img/logo72.png'
 import logo114 from './img/logo114.png'
+import logo from './img/logo-black.png'
 
 import './index.css'
 
@@ -65,8 +66,16 @@ class TemplateWrapper extends React.Component {
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
         </Helmet>
         <div id="fb-root" />
+
+        <div className="tc">
+          <Link to="/" className="db mv2">
+            <img src={logo} alt="" className="mw5-ns" />
+          </Link>
+          <p className="lh-copy ma0 pa0 mb3 fw3 ttu tracked f-serif f4">Lang thang khắp chốn</p>
+        </div>
+
         <header id="header">
-          <div className="bg-dark-gray" style={{ height: '.25rem' }} />
+          <div className="bg-dark-gray" style={{ height: '.2rem' }} />
 
           <nav className="bb b--light-gray">
             <ul className="list ma0 flex items-center container center clip-s">
@@ -88,9 +97,10 @@ class TemplateWrapper extends React.Component {
                   )}
                 </li>
               ))}
-              <li className="mr4">
-                <Link to="/search" className="fw3 f6 gray">
-                  <i className="fa fa-search" />
+              <li className="ml-auto mr4">
+                <Link to="/search" className="ttu fw3 f6 gray">
+                  Tìm kiếm
+                  <i className="ml2 fa fa-search" />
                 </Link>
               </li>
             </ul>
@@ -138,7 +148,7 @@ class TemplateWrapper extends React.Component {
         <main>{typeof children === 'function' ? children() : children}</main>
 
         <footer className="mt4-ns">
-          <div className="fixed bottom-1 right-1 z3">
+          <div className="fixed bottom-1 right-1 z-999">
             <a href="#header" className="w3 h3 flex flex-column items-center justify-center bg-dark-gray gold br2">
               <i className="fa fa-arrow-up" />
               <span className="mt2 ttu">TOP</span>
