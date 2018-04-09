@@ -1,4 +1,5 @@
 import React from 'react'
+import FacebookProvider, { Page } from 'react-facebook'
 
 import TagCloud from './TagCloud'
 
@@ -34,6 +35,15 @@ export default function(props) {
           <a href={props.socials.linkedInUrl} className="mh2 f3">
             <i className="fa fa-linkedin-square" />
           </a>
+        </main>
+      </section>
+
+      <section className="mb4">
+        <header className="tc pv3 ba b--gold gold fw6 f6 ttu tracked">Like Na trên FB</header>
+        <main className="lh-copy tc pv3">
+          <FacebookProvider appId="157432601537413" language="vi_VN">
+            <Page href="https://www.facebook.com/hikerlust/" tabs="timeline" />
+          </FacebookProvider>
         </main>
       </section>
 
