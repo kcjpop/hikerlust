@@ -26,7 +26,7 @@ function translate(key) {
 
 export default function(props) {
   return (
-    <div className="mw8-ns center mv4">
+    <div className="container center mv4">
       <InstantSearch appId="5KVC23QVM4" apiKey="c9bb12105ab37c4962a13b57ebb01879" indexName="PostIndex">
         <Configure hitsPerPage={10} />
         <SearchBox translate={translate} showLoadingIndicator={true} />

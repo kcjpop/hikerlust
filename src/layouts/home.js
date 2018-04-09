@@ -67,7 +67,7 @@ export default function(props) {
   const posts = props.pathContext.group.slice(0, 3)
 
   return (
-    <div className="mw8-ns center">
+    <div className="container center">
       {showHighlightPosts(posts)}
       <TwoColumnLayout main={() => main(props)} sidebar={() => sidebar(props)} />
     </div>

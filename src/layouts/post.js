@@ -69,7 +69,7 @@ function showRelatedPosts(props) {
 
 function showComments(currentUrl) {
   return (
-    <section className="mw8-ns center bt b--light-gray pt2">
+    <section className="container center bt b--light-gray pt2">
       <h6 className="tc pv2 f6 ttu tracked gold fw7">Bình luận</h6>
       <FacebookProvider appId="157432601537413" language="vi_VN">
         <Comments href={currentUrl} width="100%" />
@@ -88,7 +88,7 @@ export default function(props) {
 
       <BigBanner title={post.title} bgImage={post.featuredImage} href="/" />
 
-      <div className="mw8-ns center">
+      <div className="container center">
         <article className="pa3 pb4-ns bb b--light-gray">
           <h1 className="lh-copy f2-ns f3 tc gw6 ttu gold">{post.title}</h1>
 

@@ -21,7 +21,7 @@ export const query = graphql`
 export default function(props) {
   const { post } = props.data
   return (
-    <div className="mw8-ns center">
+    <div className="container center">
       <Helmet>
         <title>{post.title}</title>
       </Helmet>

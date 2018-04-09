@@ -366,7 +366,7 @@ const Map = withScriptjs(
     const { places, infoWindowOpen } = props
 
     return (
-      <div className={classnames('mw8-ns center', props.className)}>
+      <div className={classnames('container center', props.className)}>
         <GoogleMap
           ref={props.mapRef}
           defaultZoom={3}

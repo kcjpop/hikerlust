@@ -69,7 +69,7 @@ class TemplateWrapper extends React.Component {
           <div className="bg-dark-gray" style={{ height: '.25rem' }} />
 
           <nav className="bb b--light-gray">
-            <ul className="list ma0 flex items-center mw8-ns center clip-s">
+            <ul className="list ma0 flex items-center container center clip-s">
               {MENU.map(menu => (
                 <li className="mr4 pv4 relative home-menu" key={menu.label}>
                   <Link to={menu.target} className="fw3 f6 ttu tracked gray">
@@ -150,7 +150,7 @@ class TemplateWrapper extends React.Component {
             <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} />
           </section>
 
-          <div className="mw8-ns center mt3 mt4-ns mb3">
+          <div className="container center mt3 mt4-ns mb3">
             <div className="flex flex-column justify-center flex-row-ns items-center ph3 pa0-ns">
               <p className="mt0 lh-copy f6 gray">
                 {new Date().getFullYear()} Bản quyền thuộc về Na. Ghi rõ nguồn khi chia sẻ.

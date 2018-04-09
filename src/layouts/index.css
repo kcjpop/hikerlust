@@ -37,6 +37,10 @@ button {
   font-family: 'Roboto Slab', serif;
 }
 
+.container {
+  max-width: 1200px;
+}
+
 @media (--breakpoint-not-small) {
   .w-col-8-ns {
     width: calc(100% / 8);

@@ -59,7 +59,7 @@ export default function(props) {
 
       <BigBanner title={tag.title} bgImage={bgImage} href="/" />
 
-      <div className="mw8-ns center">
+      <div className="container center">
         <TwoColumnLayout main={() => main(props)} sidebar={() => sidebar(props)} />
       </div>
     </div>
