@@ -37,7 +37,7 @@ const MENU = [
       { label: 'Lang thang Việt Nam', target: '/tag/lang-thang-viet-nam' }
     ]
   },
-  { label: 'Bí Kíp Lang Thang', target: '/' },
+  { label: 'Bí Kíp Lang Thang', target: '/tag/bi-kip-du-lich' },
   { label: 'Về Na Và Hikerlust', target: '/ve-na-va-hikerlust' }
 ]
 
