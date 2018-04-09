@@ -88,7 +88,7 @@ export default function(props) {
 
       <BigBanner title={post.title} bgImage={post.featuredImage} href="/" />
 
-      <div className="container center">
+      <div className="mw8-ns center">
         <article className="pa3 pb4-ns bb b--light-gray">
           <h1 className="lh-copy f2-ns f3 tc gw6 ttu gold">{post.title}</h1>
 
