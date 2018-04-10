@@ -7,6 +7,8 @@ import Sidebar from '@/components/Sidebar'
 import TwoColumnLayout from '@/components/TwoColumnLayout'
 import Paginator from '@/components/Paginator'
 
+import { formatPostDate } from '@/helpers/fecha'
+
 export const query = graphql`
   query LatestPosts {
     site {
@@ -47,15 +49,14 @@ function showHighlightPosts(posts) {
       {posts.map(({ node }) => (
         <div
           key={node.id}
-          className="home-highlight-posts__post cover flex items-center justify-center relative"
+          className="mh3 mb3 ma0-ns home-highlight-posts__post cover flex items-center justify-center relative"
           style={{ backgroundImage: `url(${node.featuredImage})` }}
         >
           <div className="absolute absolute--fill z-1 bg-white-20" />
-          <div className="ma3 pa3 z-2 bg-black-80">
-            <Link to={`/${node.slug}`} className="f4 f-serif lh-copy" style={{ color: '#fff' }}>
-              {node.title}
-            </Link>
-          </div>
+          <Link to={`/${node.slug}`} className="mh3 mv5 pa3 z-2 bg-black-80 lh-copy tc" style={{ color: '#fff' }}>
+            <span className="db f4-ns f-serif">{node.title}</span>
+            <span className="db clip-s mt3">{formatPostDate(node)}</span>
+          </Link>
         </div>
       ))}
     </div>
