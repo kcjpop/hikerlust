@@ -133,10 +133,10 @@ class TemplateWrapper extends React.Component {
               </ul>
             </div>
 
-            <div className="clip-ns flex items-center pa3">
+            <div className="clip-ns flex items-center pa3 w-100">
               <a href="#" className="f3 flex items-center w-50" onClick={this.doToggleMenu}>
                 <i className="fa fa-bars" />
-                <span className="ml2 f5 fw3 ttu tracked gray">Nhà Của Na</span>
+                <span className="ml2 f5 fw3 ttu tracked gray">Menu</span>
               </a>
               <Link to="/search" className="fw3 f6 gray ml-auto">
                 <i className="fa fa-search" />
