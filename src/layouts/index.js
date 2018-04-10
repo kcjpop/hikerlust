@@ -69,7 +69,7 @@ class TemplateWrapper extends React.Component {
 
         <div className="tc">
           <Link to="/" className="db mv2">
-            <img src={logo} alt="" className="mw5-ns" />
+            <img src={logo} alt="" className="mw5" />
           </Link>
           <p className="lh-copy ma0 pa0 mb3 fw3 ttu tracked f-serif f4">Lang thang khắp chốn</p>
         </div>

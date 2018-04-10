@@ -30,9 +30,15 @@ function main(props) {
   const posts = (props.pathContext.group || []).map(node => ({ node }))
   const { tag } = props.pathContext.additionalContext
 
+  const title = (
+    <p className="ma0 pa0 lh-copy">
+      Bài viết thuộc chủ đề <br /> {`“${tag.title}”`}
+    </p>
+  )
+
   return (
     <div>
-      <PostList posts={posts} title={`Bài viết thuộc chủ đề “${tag.title}”`} />
+      <PostList posts={posts} title={title} />
       <Paginator {...props.pathContext} />
     </div>
   )
