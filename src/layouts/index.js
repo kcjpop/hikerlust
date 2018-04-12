@@ -56,6 +56,7 @@ class TemplateWrapper extends React.Component {
     return (
       <section>
         <Helmet>
+          <meta property="fb:app_id" content="157432601537413" />
           <meta property="fb:pages" content="229412677587462" />
           <title>{data.site.siteMetadata.title}</title>
           <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
