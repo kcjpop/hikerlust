@@ -180,7 +180,7 @@ button {
   .home-highlight-posts {
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 12rem 12rem;
+    grid-template-rows: 14rem 14rem;
     grid-gap: 0.5rem 0.5rem;
   }
 
