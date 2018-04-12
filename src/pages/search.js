@@ -27,7 +27,7 @@ function translate(key) {
 export default function(props) {
   return (
     <div className="container center mv4">
-      <InstantSearch appId="5KVC23QVM4" apiKey="c9bb12105ab37c4962a13b57ebb01879" indexName="PostIndex">
+      <InstantSearch appId="TG94ZTT3I5" apiKey="7a5ea24ac734f12330f4b121bae994fa" indexName="hikerlust">
         <Configure hitsPerPage={10} />
         <SearchBox translate={translate} showLoadingIndicator={true} />
         <h1 className="f2 tc gw6 ttu gold">Kết quả tìm kiếm</h1>
