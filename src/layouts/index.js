@@ -95,8 +95,8 @@ class TemplateWrapper extends React.Component {
           <nav className="bb b--light-gray">
             <ul className="list ma0 flex items-center container center clip-s">
               {MENU.map(menu => (
-                <li className="mr4 pv4 relative home-menu" key={menu.label}>
-                  <Link to={menu.target} className="fw3 f6 ttu tracked gray">
+                <li className="mr4 relative home-menu" key={menu.label}>
+                  <Link to={menu.target} className="db pv4 fw3 f6 ttu tracked gray">
                     {menu.label}
                   </Link>
                   {menu.children == null ? null : (
@@ -113,7 +113,7 @@ class TemplateWrapper extends React.Component {
                 </li>
               ))}
               <li className="ml-auto mr4">
-                <Link to="/search" className="ttu fw3 f6 gray">
+                <Link to="/search" className="db pv4 ttu fw3 f6 gray">
                   Tìm kiếm
                   <i className="ml2 fa fa-search" />
                 </Link>
