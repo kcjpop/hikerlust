@@ -104,10 +104,11 @@ function generatePosts({ graphql, boundActionCreators: { createPage } }) {
     `
   ).then(result => {
     if (result.errors) return reject(result.errors)
+    const POSTS_PER_PAGE = 11
 
     createPaginatedPages({
       createPage,
-      pageLength: 13,
+      pageLength: POSTS_PER_PAGE,
       edges: result.data.posts.edges,
       pageTemplate: path.resolve(__dirname, 'src/layouts/home.js')
     })
