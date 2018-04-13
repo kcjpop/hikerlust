@@ -12,8 +12,10 @@ if (fs.existsSync(envPath)) {
 module.exports = {
   siteMetadata: {
     title: 'Nhà của Na',
+    description:
+      'Tôi là một cô gái hay đi và Hikerlust là nơi ghi lại những chuyến đi của tôi ❤. Liên hệ: ngocanh.ngth@gmail.com',
+    defaultCover: 'https://res.cloudinary.com/hikerlust/image/upload/v1520219533/na_e7zop9.jpg',
     url: 'https://hikerlust.com',
-    defaultCover: 'https://res.cloudinary.com/hikerlust/image/upload/v1520256999/DSC09559-1_1_b8syui.jpg',
     socials: {
       instagramHandle: 'hikerlust',
       instagramUrl: 'https://www.instagram.com/hikerlust/',

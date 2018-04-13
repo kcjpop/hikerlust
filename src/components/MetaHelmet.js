@@ -16,12 +16,10 @@ class MetaHelmet extends React.Component {
         <title>{post.title}</title>
         <link rel="canonical" href={fullUrl} />
         <meta name="description" content={post.excerpt} />
-        <meta property="og:locale" content="vi_VN" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={fullUrl} />
-        <meta property="og:site_name" content="Hikerlust" />
         <meta property="article:publisher" content={url} />
         {post.tags.length > 0
           ? post.tags.map(tag => <meta key={tag.slug} property="article:tag" content={tag.title} />)

@@ -17,6 +17,8 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        description
+        defaultCover
         socials {
           instagramHandle
         }
@@ -56,6 +58,13 @@ class TemplateWrapper extends React.Component {
     return (
       <section>
         <Helmet>
+          <meta name="description" content={data.site.siteMetadata.description} />
+          <meta property="og:locale" content="vi_VN" />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content="Hikerlust" />
+          <meta property="og:site_name" content="Hikerlust" />
+          <meta property="og:image" content={data.site.siteMetadata.defaultCover} />
+          <meta property="og:image:secure_url" content={data.site.siteMetadata.defaultCover} />
           <meta property="fb:app_id" content="157432601537413" />
           <meta property="fb:pages" content="229412677587462" />
           <title>{data.site.siteMetadata.title}</title>
