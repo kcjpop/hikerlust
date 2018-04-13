@@ -53,7 +53,7 @@ function showHighlightPosts(posts) {
           style={{ backgroundImage: `url(${node.featuredImage})` }}
         >
           <div className="absolute absolute--fill z-1 bg-white-20" />
-          <Link to={`/${node.slug}`} className="mh3 mv5 pa3 z-2 bg-black-80 lh-copy tc" style={{ color: '#fff' }}>
+          <Link to={`/${node.slug}`} className="mh3 mv5 pa3 z-2 bg-black-60 lh-copy tc" style={{ color: '#fff' }}>
             <span className="db f4-ns f-serif">{node.title}</span>
             <span className="db clip-s mt3">{formatPostDate(node)}</span>
           </Link>
