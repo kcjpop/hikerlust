@@ -97,7 +97,7 @@ class TemplateWrapper extends React.Component {
                   {menu.children == null ? null : (
                     <ul className="list ma0 pa0 absolute left-0 right-0 z-2" style={{ top: '100%' }}>
                       {menu.children.map(submenu => (
-                        <li key={submenu.label} className="bg-white-90">
+                        <li key={submenu.label} className="bg-white">
                           <Link className="db ttu pa3 lh-copy" to={submenu.target}>
                             {submenu.label}
                           </Link>
