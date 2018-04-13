@@ -170,11 +170,6 @@ class TemplateWrapper extends React.Component {
             </a>
           </div>
 
-          <section className="mt4-ns">
-            <h6 className="tc pt3 f6 ttu tracked gold fw7">Instagram của Na</h6>
-            <Instafeed handle={data.site.siteMetadata.socials.instagramHandle} />
-          </section>
-
           <div className="container center mt3 mt4-ns mb3">
             <div className="flex flex-column justify-center flex-row-ns items-center ph3 pa0-ns">
               <p className="mt0 lh-copy f6 gray">
