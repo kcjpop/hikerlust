@@ -30,11 +30,7 @@ function main(props) {
   const posts = (props.pathContext.group || []).map(node => ({ node }))
   const { tag } = props.pathContext.additionalContext
 
-  const title = (
-    <p className="ma0 pa0 lh-copy">
-      Bài viết thuộc chủ đề <br /> {`“${tag.title}”`}
-    </p>
-  )
+  const title = <p className="ma0 pa0 lh-copy">{tag.title}</p>
 
   return (
     <div>
