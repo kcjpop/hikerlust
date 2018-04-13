@@ -24,6 +24,7 @@ export default function(props) {
     <div className="container center">
       <Helmet>
         <title>{post.title}</title>
+        <meta property="og:title" content={post.title} />
       </Helmet>
 
       <article className="pa3 pa0-ns pb4-ns bb b--light-gray">

@@ -57,10 +57,17 @@ function getFirstCover(props) {
 export default function(props) {
   const bgImage = getFirstCover(props)
   const { tag } = props.pathContext.additionalContext
+  const description = `Xem những bài viết thuộc chủ đề "${tag.title}" trên Hikerlust`
+  const title = `${tag.title} :: Nhà của Na`
   return (
     <div>
       <Helmet>
-        <title>{tag.title}</title>
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={bgImage} />
+        <meta property="og:image:secure_url" content={bgImage} />
       </Helmet>
 
       <BigBanner title={tag.title} bgImage={bgImage} href="/" />
