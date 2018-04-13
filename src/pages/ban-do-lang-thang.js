@@ -383,7 +383,9 @@ const Map = withScriptjs(
                 position={{ lat: node.location.lat, lng: node.location.lon }}
                 onClick={props.doToggleInfoWindow(node)}
               >
-                {props.isInfoWindowOpen(node) && <InfoWindow>{makeInfoWindowContent(node)}</InfoWindow>}
+                {props.isInfoWindowOpen(node) &&
+                  node.post != null &&
+                  node.post.length > 0 && <InfoWindow>{makeInfoWindowContent(node)}</InfoWindow>}
               </Marker>
             )
           })}
@@ -436,7 +438,7 @@ class LocationAccordion extends React.Component {
             <div className="mb3" key={country}>
               <button
                 type="button"
-                className="outline-0 db bn bg-transparent pointer f4 gold fw3 ma0 pa0 w-100 tl"
+                className="outline-0 db bn bg-transparent pointer f5 gold ma0 pa0 w-100 tl"
                 onClick={this.doToggleExpand(country)}
               >
                 <span className="dib w1 tc">{this.getCountryListIcon(country)}</span>
@@ -500,7 +502,7 @@ class HikerMap extends React.Component {
         <LocationAccordion
           doCenterMap={this.doCenterMap}
           places={data.places.edges}
-          className="absolute top-1 left-1 z-2 pv3 ph4 bg-white w5"
+          className="absolute-ns top-1 left-1 bottom-1 z-2 pa3 bg-white w5 overflow-y-auto overflow-x-hidden"
         />
         <Map
           mapRef={el => (this.mapRef = el)}
