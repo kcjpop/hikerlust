@@ -33,7 +33,7 @@ function main(props) {
   const posts = props.pathContext.group.slice(3)
   return (
     <div>
-      <PostList title="Bài viết mới" posts={posts} />
+      <PostList title="Lang thang Hikerlust" posts={posts} />
       <Paginator {...props.pathContext} />
     </div>
   )
