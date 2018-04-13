@@ -34,9 +34,9 @@ export default function Post(props) {
   return (
     <article className={classnames('flex flex-column', className)} {...rest}>
       <Link to={`/${post.slug}`}>
-        <div className="mb2 h5 cover bg-center" style={{ backgroundImage: `url(${post.featuredImage})` }} />
+        <div className="mb2 cover bg-center h5" style={{ backgroundImage: `url(${post.featuredImage})` }} />
       </Link>
-      <h4 className="mv2 h3">
+      <h4 className={classnames('mv2', { h3: !noExcerpt })}>
         <Link className="f5 ttu tracked fw6 lh-copy" to={`/${post.slug}`}>
           {post.title}
         </Link>
