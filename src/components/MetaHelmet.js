@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 class MetaHelmet extends React.Component {
   render() {
     const { url, location } = this.props
-    const fullUrl = `${url}/${location.pathname}`
+    const fullUrl = `${url}${location.pathname}`
     const post = this.props.post || {}
     const title = post ? post.title : props.title
     const image = post ? post.featuredImage : ''

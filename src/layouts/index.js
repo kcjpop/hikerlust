@@ -16,6 +16,7 @@ export const query = graphql`
   query TemplateQuery {
     site {
       siteMetadata {
+        url
         title
         description
         defaultCover
@@ -54,11 +55,15 @@ class TemplateWrapper extends React.Component {
   }
 
   render() {
-    const { data, children } = this.props
+    const { data, children, location } = this.props
+    const fullUrl = `${data.site.siteMetadata.url}${location.pathname}`
+
     return (
       <section>
         <Helmet>
           <meta name="description" content={data.site.siteMetadata.description} />
+          <meta property="og:description" content={data.site.siteMetadata.description} />
+          <meta property="og:url" content={fullUrl} />
           <meta property="og:locale" content="vi_VN" />
           <meta property="og:type" content="article" />
           <meta property="og:title" content="Hikerlust" />
