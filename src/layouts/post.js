@@ -88,16 +88,16 @@ export default function(props) {
 
       <BigBanner title={post.title} bgImage={post.featuredImage} href="/" />
 
-      <div className="mw8-ns center">
+      <div className="center" style={{ maxWidth: '960px' }}>
         <article className="pa3 pb4-ns bb b--light-gray">
           <h1 className="lh-copy f2-ns f3 tc gw6 ttu gold">{post.title}</h1>
 
-          <div className="flex flex-column flex-row-ns items-center justify-center db tc f5 mb4">
-            <span className="mb3 mb0-ns mr4-ns">
+          <div className="flex flex-column flex-row-ns items-center justify-center db f5 mb4">
+            <span className="w-30-ns mb2 mr4-ns">
               <i className="fa fa-calendar mr2" />
               {formatPostDate(post)}
             </span>
-            <ul className="dib list pa0 ma0">
+            <ul className="w-70-ns dib list pa0 ma0 tr">
               {post.tags.map(tag => (
                 <li className="br2 dib pv1 ph2 mb2 mr2 ba b--gold" key={tag.slug}>
                   <i className="gold fa fa-tag" />
