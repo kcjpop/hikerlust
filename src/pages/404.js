@@ -32,7 +32,7 @@ class NotFoundPage extends React.Component {
   }
 
   componentDidMount() {
-    const searchState = NotFoundPage.getSearchStateFromUrl(this.props.location)
+    const searchState = NotFoundPage.getSearchStateFromUrl(window.location)
     this.setState({ searchState: { ...this.state.searchState, ...searchState } })
   }
 
@@ -41,7 +41,8 @@ class NotFoundPage extends React.Component {
   }
 
   static getSearchStateFromUrl({ search, pathname }) {
-    const qStr = search.slice(1)
+    console.log(99, search, pathname)
+    const qStr = search ? search.slice(1) : ''
     const state = qStr && qStr.length > 0 ? qs.parse(qStr) || {} : {}
     return !state.query || state.query.length === 0
       ? { ...state, query: NotFoundPage.getQueryFromPathname(pathname) }
