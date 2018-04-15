@@ -41,7 +41,6 @@ class NotFoundPage extends React.Component {
   }
 
   static getSearchStateFromUrl({ search, pathname }) {
-    console.log(99, search, pathname)
     const qStr = search ? search.slice(1) : ''
     const state = qStr && qStr.length > 0 ? qs.parse(qStr) || {} : {}
     return !state.query || state.query.length === 0
@@ -63,7 +62,7 @@ class NotFoundPage extends React.Component {
     const url = this.searchStateToUrl(this.props, searchState)
     this.debouncedSetState = setTimeout(() => {
       const url = this.searchStateToUrl(this.props, searchState)
-      this.props.history.push(url, searchState)
+      this.props.history && this.props.history.push(url, searchState)
     }, 500)
     this.setState({ searchState })
   }
