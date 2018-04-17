@@ -111,7 +111,7 @@ export default function(props) {
 
           <GoogleAds style={{ display: 'block', textAlign: 'center' }} {...slot1} />
 
-          <Markdown source={post.content.content} className="js-content" />
+          <Markdown source={post.content.content} escapeHtml={false} className="js-content" />
 
           <GoogleAds style={{ display: 'block', textAlign: 'center' }} {...slot2} />
         </article>
