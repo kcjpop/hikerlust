@@ -56,6 +56,12 @@ button {
   font-family: 'Roboto Slab', serif;
 }
 
+.js-content iframe {
+  width: 100%;
+  min-height: 400px;
+  border: 0;
+}
+
 .js-content a,
 .js-content a:link,
 .js-content a:visited {
