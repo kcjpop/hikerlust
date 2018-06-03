@@ -60,6 +60,7 @@ class TemplateWrapper extends React.Component {
     return (
       <section>
         <Helmet>
+          <html lang="vi" />
           <meta name="google-site-verification" content="Vng5ebND-IVJ8ICgP0GHkB7_fPX0rx346-YVR9LxrPY" />
           <meta name="description" content={data.site.siteMetadata.description} />
           <meta property="og:description" content={data.site.siteMetadata.description} />
