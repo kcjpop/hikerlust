@@ -79,7 +79,15 @@ function showComments(currentUrl) {
 }
 
 export default function(props) {
-  const { post, site: { siteMetadata: { url, ads: { slot1, slot2 } } } } = props.data
+  const {
+    post,
+    site: {
+      siteMetadata: {
+        url,
+        ads: { slot1, slot2 }
+      }
+    }
+  } = props.data
   const currentUrl = `${url}${props.location.pathname}`
 
   return (

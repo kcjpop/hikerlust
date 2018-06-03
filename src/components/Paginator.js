@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import { makeNextPath, makePrevPath } from '@/helpers/pagination'
 
 export default function(props) {
-  const { group, first, last } = props
+  const { first, last } = props
   return (
     <div className="flex items-center mt3">
       {first ? null : (

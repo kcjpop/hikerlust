@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
-import Instafeed from '@/components/Instafeed'
 import classnames from 'classnames'
 
 import logo57 from './img/logo57.png'

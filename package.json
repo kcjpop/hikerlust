@@ -7,7 +7,7 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
     "fecha": "^2.3.3",
-    "gatsby": "^1.9.223",
+    "gatsby": "^1.9.269",
     "gatsby-link": "^1.6.38",
     "gatsby-paginate": "^1.0.14",
     "gatsby-plugin-google-analytics": "^1.0.28",
@@ -29,8 +29,9 @@
     "start": "gatsby develop"
   },
   "devDependencies": {
-    "contentful-cli": "^0.8.3",
+    "contentful-cli": "^0.14.1",
     "dotenv": "^5.0.1",
-    "prettier": "^1.11.1"
+    "prettier": "^1.11.1",
+    "remark-shortcodes": "^0.2.0"
   }
 }
